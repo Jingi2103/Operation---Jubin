@@ -82,11 +82,76 @@ h1{font-size:clamp(66px,13vw,132px);line-height:.78;letter-spacing:-2px;margin:1
 .card{position:relative;overflow:hidden;background:linear-gradient(145deg,#151e2bF2,#0c121cF5);border:1px solid #ffffff1b;border-radius:18px;padding:clamp(22px,4vw,42px);box-shadow:0 25px 80px #0008;margin:22px 0;backdrop-filter:blur(12px)}.card:before{content:"";position:absolute;inset:0 0 auto;height:1px;background:linear-gradient(90deg,transparent,#f1cf8377,transparent)}.card.center>p:not(.warning):not(.micro-hint){color:#c2cad5;line-height:1.7}.transmission-head,.countdown-heading{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}.signal{font:9px 'DM Mono';color:#f17a82;letter-spacing:1.5px}.signal:first-letter{color:var(--red)}.meme{letter-spacing:.5px;text-shadow:0 4px 20px #0008}.warning{max-width:690px;margin:23px auto 25px;background:#f1cf8309;border-left-color:var(--gold);border-radius:0 8px 8px 0;padding:13px 17px}.btn{border-radius:7px;background:linear-gradient(110deg,#f04452,#c9273b);padding:15px 23px;letter-spacing:.6px;box-shadow:0 9px 25px #e8324233;transition:transform .2s,box-shadow .2s,filter .2s}.btn:hover{transform:translateY(-3px);box-shadow:0 14px 32px #e8324255;filter:brightness(1.08)}.btn:active{transform:translateY(0) scale(.98)}.reveal-btn{gap:12px}.reveal-btn b{font-size:18px;margin-left:5px}.micro-hint{font:9px 'DM Mono';letter-spacing:2px;color:#7f8b9b;margin:13px 0 0!important}
 #mission,#rsvp,#final{animation:unseal .7s cubic-bezier(.2,.8,.2,1) both}@keyframes unseal{from{opacity:0;transform:translateY(22px) scale(.985);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
 .mission-title{font-size:clamp(28px,5vw,40px);margin:10px 0 22px}.grid{gap:13px}.detail{position:relative;min-height:142px;padding:22px;background:linear-gradient(145deg,#0b121c,#101a27);border-color:#ffffff16;border-radius:12px;transition:transform .25s,border-color .25s,background .25s}.detail:hover{transform:translateY(-5px);border-color:#f1cf8366;background:linear-gradient(145deg,#111b29,#172334)}.detail small{font-size:9px;letter-spacing:1.3px}.detail strong{display:block;font-size:18px;line-height:1.3}.detail em{display:block;margin-top:7px;color:#8996a7;font:10px 'DM Mono';font-style:normal}.detail-icon{display:block;font-size:20px;margin-bottom:13px}.countdown-heading{margin-top:28px}.countdown-live{font:9px 'DM Mono';color:#8b98a8;letter-spacing:1px}.countdown-live i{width:6px;height:6px;margin-right:5px}.timer{gap:12px;max-width:680px;margin:20px auto 24px}.timebox{background:linear-gradient(180deg,#0a111a,#0b0f16);border:1px solid #ffffff1b;border-radius:10px;padding:17px 5px;position:relative;overflow:hidden}.timebox:before{content:"";position:absolute;top:0;left:15%;right:15%;height:1px;background:var(--red);box-shadow:0 0 12px var(--red)}.timebox b{font-size:clamp(32px,6vw,48px);color:#fff}.timebox span{font-size:9px;letter-spacing:2px}.rsvp-progress{display:flex;align-items:center;justify-content:center;gap:12px;color:#8995a5;font:9px 'DM Mono';letter-spacing:1.5px;margin:0 auto 25px}.rsvp-progress span{height:1px;width:45px;background:#f1cf8355}
-form{max-width:640px}.choices{gap:10px}.choice{flex:1 1 190px;justify-content:flex-start;border-radius:9px;background:#0a111b;border-color:#ffffff20;padding:14px 15px;cursor:pointer;transition:.2s}.choice:hover{border-color:#f1cf8377;transform:translateY(-2px)}.choice:has(input:checked){border-color:var(--gold);background:#f1cf8312;box-shadow:inset 0 0 0 1px #f1cf8322;color:#fff}.choice input{accent-color:var(--red);width:15px;height:15px}label{font-size:10px;letter-spacing:1.5px}input[type=text],input[type=email],input[type=password],select{background:#080e17;border-color:#ffffff25;border-radius:8px;outline:none;transition:border-color .2s,box-shadow .2s}input:focus,select:focus{border-color:var(--gold)!important;box-shadow:0 0 0 3px #f1cf8318}.status{line-height:1.6}.foot{border-top:1px solid #ffffff16;padding-top:20px;letter-spacing:2px}
+form{max-width:640px}.choices{gap:10px}.planning-note{display:flex;gap:10px;align-items:flex-start;text-align:left;margin:13px 0 4px;padding:12px 14px;border:1px solid #f1cf8340;border-left:3px solid var(--gold);border-radius:8px;background:#f1cf830a;color:#c4ccd7;font-size:12px;line-height:1.6}.planning-note b{color:var(--gold);white-space:nowrap;font:10px 'DM Mono';letter-spacing:1px}.planning-note span{color:#c4ccd7}.choice{flex:1 1 190px;justify-content:flex-start;border-radius:9px;background:#0a111b;border-color:#ffffff20;padding:14px 15px;cursor:pointer;transition:.2s}.choice:hover{border-color:#f1cf8377;transform:translateY(-2px)}.choice:has(input:checked){border-color:var(--gold);background:#f1cf8312;box-shadow:inset 0 0 0 1px #f1cf8322;color:#fff}.choice input{accent-color:var(--red);width:15px;height:15px}label{font-size:10px;letter-spacing:1.5px}input[type=text],input[type=email],input[type=password],select{background:#080e17;border-color:#ffffff25;border-radius:8px;outline:none;transition:border-color .2s,box-shadow .2s}input:focus,select:focus{border-color:var(--gold)!important;box-shadow:0 0 0 3px #f1cf8318}.status{line-height:1.6}.foot{border-top:1px solid #ffffff16;padding-top:20px;letter-spacing:2px}
 /* Admin module receives the same premium visual language. */
 .auth-card{border-color:#f1cf8340}.auth-card h1{font-size:clamp(48px,8vw,68px);line-height:.9}.stats{gap:12px}.stat{background:linear-gradient(145deg,#111b29,#0a1018);border-color:#ffffff1b;border-radius:12px}.stat b{color:var(--gold)}.toolbar .btn{box-shadow:none}.tablewrap{border:1px solid #ffffff14;border-radius:10px}table{border-collapse:separate;border-spacing:0}th{background:#0a111b}td{color:#d4dae3}tbody tr:hover td{background:#ffffff06}.pill{font-weight:700}.btn.secondary{background:#202b3a;border-color:#536174}.btn.secondary:hover{background:#2c394b}
 @media(max-width:650px){.hero{padding:58px 0 30px}.hero-pills{font-size:8px;gap:8px}.top-right{gap:6px}.live-label{display:none}.stamp{padding:6px 8px}.brand-lockup{font-size:9px}.hero-rule{font-size:8px;letter-spacing:1.3px}.hero-rule span{width:25px}.detail{min-height:125px}.timer{gap:8px}.timebox{padding:13px 4px}.stats{grid-template-columns:repeat(2,1fr)}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+
+
+/* TYPOGRAPHY BOOST — clearer hierarchy, bigger reading text, stronger callouts */
+body{font-size:16px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.top{font-size:11px}
+.brand-lockup{font-size:11px;font-weight:800}
+.stamp{font-size:11px}
+.kicker,.eyebrow{font-size:11px;letter-spacing:2.6px;font-weight:700}
+.file-tag{font-size:11px}
+.hero{padding-top:82px}
+.hero-rule{font-size:11px;letter-spacing:2px;font-weight:700}
+.sub{font-size:clamp(17px,2vw,19px);line-height:1.8;max-width:690px;color:#e0e5ec}
+.hero-pills{font-size:11px;letter-spacing:1.7px;font-weight:700}
+.card.center>p:not(.warning):not(.micro-hint){font-size:17px;line-height:1.8;color:#e0e5ec}
+.transmission-head .eyebrow{font-size:12px}
+.signal{font-size:10px}
+.meme{font-size:clamp(25px,4.5vw,36px);line-height:1.25}
+.warning{font-size:16px;line-height:1.75;color:#e3e6eb}
+.micro-hint{font-size:10px;letter-spacing:1.8px}
+.mission-title{font-size:clamp(32px,5.2vw,44px);line-height:1.05}
+.detail{padding:24px}
+.detail small,.stat small{font-size:11px;letter-spacing:1.25px;line-height:1.5}
+.detail strong{font-size:clamp(19px,2.2vw,22px);line-height:1.3}
+.detail em{font-size:12px;line-height:1.5}
+.detail-icon{font-size:23px}
+.countdown-heading .eyebrow{font-size:12px}
+.countdown-live{font-size:10px}
+.timebox{padding:19px 6px}
+.timebox b{font-size:clamp(36px,6vw,52px)}
+.timebox span{font-size:11px;letter-spacing:1.8px;font-weight:700}
+label{font-size:12px;letter-spacing:1.3px;margin-top:19px}
+input[type=text],input[type=email],input[type=password],select{font-size:16px;padding:16px}
+.choice{font-size:15px;font-weight:700;padding:15px 16px;line-height:1.35}
+.choice input{width:17px;height:17px}
+.planning-note{font-size:14px;line-height:1.7;padding:14px 16px}
+.planning-note b{font-size:11px}
+.btn{font-size:15px;min-height:50px;padding:16px 25px;font-weight:900;letter-spacing:.8px}
+.note,.auth-note{font-size:15px;line-height:1.75}
+.stat b{font-size:42px}
+th,td{font-size:14px;line-height:1.5}
+th{font-size:11px}
+.pill{font-size:12px}
+.foot{font-size:11px;line-height:1.7}
+.rsvp-progress{font-size:10px;letter-spacing:1.3px}
+
+@media(max-width:650px){
+  .hero{padding-top:62px}
+  .kicker,.eyebrow{font-size:10px;letter-spacing:2px}
+  .hero-rule{font-size:9px;letter-spacing:1.2px}
+  .hero-pills{font-size:10px;gap:8px;letter-spacing:1px}
+  .sub{font-size:17px;line-height:1.75;padding:0 8px}
+  .card.center>p:not(.warning):not(.micro-hint){font-size:16px}
+  .warning{font-size:15px}
+  .mission-title{font-size:32px}
+  .detail strong{font-size:19px}
+  .detail small{font-size:10px}
+  .detail em{font-size:11px}
+  .choice{font-size:14px;flex-basis:100%}
+  .planning-note{font-size:13px}
+  .btn{font-size:14px;width:100%}
+  .timebox span{font-size:10px}
+  .brand-lockup{font-size:9px}
+  .stamp{font-size:10px}
+}
 
 </style>
 </head>
@@ -152,6 +217,10 @@ form{max-width:640px}.choices{gap:10px}.choice{flex:1 1 190px;justify-content:fl
         <label class="choice"><input type="radio" name="drink" value="White"> 🍸 White</label>
         <label class="choice"><input type="radio" name="drink" value="Beer"> 🍺 Beer</label>
         <label class="choice"><input type="radio" name="drink" value="No alcohol"> 🚫 No alcohol</label>
+      </div>
+      <div class="planning-note" role="note">
+        <b>NOTE //</b>
+        <span>This information is being collected purely for planning purposes. Final arrangements and preferences will be confirmed closer to the event.</span>
       </div>
       <div style="text-align:center;margin-top:24px"><button class="btn" id="submitBtn" type="submit">📡 SEND RESPONSE TO HQ</button></div>
       <div class="status" id="formStatus" role="status" aria-live="polite"></div>
@@ -255,54 +324,40 @@ function tickCountdown() {
 tickCountdown();
 setInterval(tickCountdown, 1000);
 
-
 $("rsvpForm").addEventListener("submit", async (event) => {
   event.preventDefault();
-
-  const formElement = event.currentTarget;
   const submitBtn = $("submitBtn");
   const status = $("formStatus");
-
-  const form = new FormData(formElement);
-
+  if (SUPABASE_URL.includes("YOUR_SUPABASE") || SUPABASE_PUBLISHABLE_KEY.includes("YOUR_SUPABASE")) {
+    status.textContent = "HQ connection is not configured yet. Please contact the organiser.";
+    status.classList.add("error");
+    return;
+  }
+  const form = new FormData(event.currentTarget);
   const payload = {
     guest_name: String(form.get("guestName") || "").trim(),
     attendance: form.get("attendance"),
     drink_preference: form.get("drink")
   };
-
   if (!payload.guest_name || payload.guest_name.length > 80) {
-    status.textContent = "Please enter a valid name.";
+    status.textContent = "Please enter a valid name (maximum 80 characters).";
     status.classList.add("error");
     return;
   }
-
   submitBtn.disabled = true;
-  submitBtn.textContent = "TRANSMITTING...";
+  submitBtn.textContent = "TRANSMITTING…";
   status.classList.remove("error");
-  status.textContent = "Sending your response securely to HQ...";
-
+  status.textContent = "Sending your response securely to HQ…";
   try {
-    const { error } = await supabaseClient
-      .from("guest_submissions")
-      .insert(payload);
-
+    // Deliberately do not request returned rows: public visitors have no read permission.
+    const { error } = await supabaseClient.from("guest_submissions").insert(payload);
     if (error) throw error;
-
-    // Successful submission
-    status.textContent =
-      "✅ Response received by HQ. You are officially on the record, agent.";
-
-    formElement.reset();
-
+    status.textContent = "✅ Response received by HQ. You are officially on the record, agent.";
+    event.currentTarget.reset();
   } catch (error) {
     console.error("RSVP submission failed:", error);
-
-    status.textContent =
-      "Transmission failed. Please try again in a moment.";
-
+    status.textContent = "Transmission failed. Please try again in a moment.";
     status.classList.add("error");
-
   } finally {
     submitBtn.disabled = false;
     submitBtn.textContent = "📡 SEND RESPONSE TO HQ";
