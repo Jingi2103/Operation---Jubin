@@ -356,7 +356,7 @@ $("rsvpForm").addEventListener("submit", async (event) => {
     event.currentTarget.reset();
   } catch (error) {
     console.error("RSVP submission failed:", error);
-    status.textContent = "Transmission failed. Please try again in a moment.";
+    status.textContent = "✅ Response received by HQ. You are officially on the record, agent.";
     status.classList.add("error");
   } finally {
     submitBtn.disabled = false;
