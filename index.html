@@ -509,7 +509,33 @@ $("rsvpForm").addEventListener("submit", async (event) => {
     // Deliberately do not request returned rows: public visitors have no read permission.
     const { error } = await supabaseClient.from("guest_submissions").insert(payload);
     if (error) throw error;
-    status.innerHTML = '<div class="registration-success"><div class="success-icon">✓</div><strong>AGENT REGISTERED</strong><p>YOUR RESPONSE HAS BEEN RECEIVED BY HQ.<br>YOU ARE OFFICIALLY ON THE RECORD.</p></div>';
+    const isAttending = payload.attendance === "Attending";
+
+if (isAttending) {
+  status.innerHTML = `
+    <div class="registration-success">
+      <div class="success-icon">✓</div>
+      <strong>AGENT REGISTERED</strong>
+      <p>YOUR RESPONSE HAS BEEN RECEIVED BY HQ.<br>
+      YOU ARE OFFICIALLY ON THE RECORD.</p>
+    </div>`;
+} else {
+  status.innerHTML = `
+    <div class="registration-success" style="
+      border-color:#f0445288;
+      background:linear-gradient(145deg,#29151b,#110a0e);
+      box-shadow:0 0 45px #f0445218;">
+      <div class="success-icon" style="
+        border-color:#ff5967;
+        color:#ff5967;">✕</div>
+      <strong style="color:#ff5967;">AGENT LOST IN ACTION</strong>
+      <p style="color:#e6c9cd;">
+        YOUR ABSENCE HAS BEEN OFFICIALLY RECORDED.<br>
+        THE SQUAD WILL REMEMBER YOUR BETRAYAL.<br>
+        YOU ARE DISMISSED. 🤡
+      </p>
+    </div>`;
+}
     formElement.reset();
     $("final").classList.remove("hidden");
     setTimeout(() => $("final").scrollIntoView({behavior:"smooth", block:"start"}), 450);
