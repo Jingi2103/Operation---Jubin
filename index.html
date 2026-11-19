@@ -159,42 +159,107 @@ th{font-size:11px}
 @media(max-width:650px){.team-grid,.admin-clue-grid{grid-template-columns:1fr 1fr}.inline-actions .btn{width:100%}}
 @media(max-width:420px){.team-grid,.admin-clue-grid{grid-template-columns:1fr}}
 
+
+/* FINAL GUEST EXPERIENCE POLISH — visual-only layer; backend and event handlers untouched */
+:root{--red:#ff4057;--gold:#f4d38b;--ink:#07090e}
+body{background:radial-gradient(ellipse at 50% 8%,#263348 0%,#111824 34%,#07090e 76%)}
+body:after{opacity:.09;background-size:42px 42px}
+.hero{padding-top:86px;padding-bottom:54px}
+.hero:before{content:"";position:absolute;z-index:-1;left:50%;top:22px;transform:translateX(-50%);width:min(780px,95vw);height:440px;border-radius:50%;background:radial-gradient(ellipse,#f0445219 0%,#f1cf8309 40%,transparent 72%);filter:blur(14px);pointer-events:none}
+.hero-emblem{width:76px;height:76px;background:linear-gradient(145deg,#ffffff0c,#f1cf8308);box-shadow:0 0 65px #f1cf8326,inset 0 0 25px #f1cf8314}
+h1{font-size:clamp(70px,14vw,150px);letter-spacing:-3px;text-shadow:0 12px 50px #000,0 0 70px #f0445220}
+h1 span{background:linear-gradient(100deg,#ff5267 10%,#f1cf83 52%,#ff5267 90%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:titleShimmer 7s linear infinite;text-shadow:none}
+@keyframes titleShimmer{to{background-position:200% center}}
+.hero-rule{font-size:clamp(9px,1.2vw,12px)}
+.hero-pills{padding:11px 17px;border:1px solid #ffffff18;border-radius:40px;background:#080d16a8;width:max-content;max-width:100%;margin:22px auto 0;backdrop-filter:blur(8px)}
+.card{border-color:#ffffff24;box-shadow:0 28px 90px #0009,0 0 45px #f1cf8308}
+.card.center:first-of-type{max-width:850px;margin:0 auto 30px}
+.card.center:first-of-type:after{content:"";position:absolute;pointer-events:none;inset:8px;border:1px solid #f1cf8314;border-radius:12px}
+.reveal-btn{min-width:min(340px,100%);background:linear-gradient(105deg,#ff4057,#c81f3d 55%,#e2ad55);box-shadow:0 12px 35px #f0445240}
+.reveal-btn:hover{box-shadow:0 16px 45px #f0445266}
+#mission,#rsvp,#final{max-width:900px;margin-left:auto;margin-right:auto}
+#rsvp{border-color:#f1cf8350}
+#teamPortalView{border-color:#f1cf8350;box-shadow:0 25px 90px #000a,0 0 60px #f1cf8310}
+.hunt-panel h2{font-size:clamp(38px,7vw,52px)}
+.top-right a[href="#team"]{padding:10px 13px;border:1px solid #f1cf8350;border-radius:30px;background:#f1cf830b;transition:.2s}
+.top-right a[href="#team"]:hover{background:#f1cf8318;border-color:var(--gold)}
+.btn{border-radius:10px}
+.detail,.timebox,.stat,.team-progress{box-shadow:inset 0 1px #ffffff08}
+@media(max-width:650px){.hero{padding-top:62px}.hero-emblem{margin-top:22px}.hero-pills{font-size:9px;letter-spacing:1px;padding:10px 12px}.hero:before{height:350px}.top-right a[href="#team"]{padding:8px 9px}.stamp{display:none}}
+@media(prefers-reduced-motion:reduce){h1 span{animation:none}}
+
+
+/* CINEMATIC CLASSIFIED OPENING — frontend only */
+#cinematicIntro{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 50% 45%,#202b38 0,#090d14 48%,#030509 100%);transition:opacity .85s ease,visibility .85s ease;overflow:hidden}
+#cinematicIntro:before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,#ffffff08 0 1px,transparent 1px 4px);opacity:.35}
+#cinematicIntro:after{content:"";position:absolute;width:min(78vw,650px);aspect-ratio:1;border:1px solid #f0445233;border-radius:50%;box-shadow:0 0 0 35px #f0445208,0 0 0 90px #f0445205,inset 0 0 70px #f0445210;animation:radarPulse 3s ease-in-out infinite}
+#cinematicIntro.intro-out{opacity:0;visibility:hidden;pointer-events:none}
+.intro-content{position:relative;z-index:2;width:min(720px,100%);text-align:center}
+.intro-classification{font:700 10px 'DM Mono',monospace;letter-spacing:4px;color:#f04452;margin-bottom:28px;animation:blink 1.4s steps(2,start) infinite}
+.intro-emblem{width:88px;height:88px;margin:0 auto 30px;border:1px solid #f1cf8377;border-radius:50%;display:grid;place-items:center;color:var(--gold);font:900 48px 'Barlow Condensed';position:relative;box-shadow:0 0 45px #f1cf8320}
+.intro-emblem:before,.intro-emblem:after{content:"";position:absolute;inset:-9px;border:1px solid #f0445266;border-radius:50%;border-top-color:transparent;animation:spin 7s linear infinite}.intro-emblem:after{inset:-17px;border-color:#f1cf8333;border-bottom-color:transparent;animation-direction:reverse;animation-duration:11s}
+.intro-content h2{font:900 clamp(38px,8vw,76px)/.94 'Barlow Condensed',sans-serif;letter-spacing:1px;margin:0 0 18px;text-transform:uppercase}.intro-content h2 span{display:block;color:var(--red);text-shadow:0 0 30px #f0445266}
+.intro-message{min-height:54px;margin:0 auto 28px;color:#c7d0dc;font:12px/1.8 'DM Mono',monospace;letter-spacing:1.4px;text-transform:uppercase}
+.intro-message:after{content:"▋";color:var(--red);animation:blink .8s steps(2,start) infinite}
+.intro-button{min-width:min(310px,100%);background:linear-gradient(110deg,#f04452,#a91f31);border:1px solid #ff8790;color:#fff;padding:17px 25px;border-radius:5px;font:900 14px 'DM Mono',monospace;letter-spacing:2px;cursor:pointer;box-shadow:0 0 35px #f0445240;transition:.25s}
+.intro-button:hover{transform:translateY(-3px);box-shadow:0 0 50px #f0445270}
+.intro-foot{margin-top:22px;color:#6f7b8b;font:9px 'DM Mono',monospace;letter-spacing:2px}
+@keyframes radarPulse{50%{transform:scale(1.07);opacity:.45}}
+@keyframes blink{to{visibility:hidden}}
+.registration-success{max-width:560px;margin:22px auto;padding:26px 18px;border:1px solid #8fe0ad66;border-radius:12px;background:linear-gradient(145deg,#10241d,#09130f);box-shadow:0 0 45px #8fe0ad14;animation:successIn .65s cubic-bezier(.2,.8,.2,1) both}
+.registration-success .success-icon{width:54px;height:54px;margin:0 auto 14px;border:1px solid #8fe0ad;border-radius:50%;display:grid;place-items:center;color:#8fe0ad;font-size:28px;animation:successPop .5s .2s both}
+.registration-success strong{display:block;color:#8fe0ad;font:900 clamp(27px,5vw,38px) 'Barlow Condensed';letter-spacing:2px}
+.registration-success p{margin:8px 0 0;color:#c9d9d0;font:11px 'DM Mono';letter-spacing:1px;line-height:1.8}
+@keyframes successIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes successPop{from{transform:scale(.4) rotate(-25deg)}to{transform:scale(1) rotate(0)}}
+@media(prefers-reduced-motion:reduce){#cinematicIntro:after,.intro-emblem:before,.intro-emblem:after,.intro-classification,.intro-message:after{animation:none!important}.registration-success{animation:none}}
+
 </style>
 </head>
 <body>
+<div id="cinematicIntro" aria-label="Classified mission introduction">
+  <div class="intro-content">
+    <div class="intro-classification">● INCOMING TRANSMISSION // PRIORITY ONE ●</div>
+    <div class="intro-emblem" aria-hidden="true">J</div>
+    <h2>OPERATION <span>JUBIN</span></h2>
+    <p class="intro-message" id="introMessage" aria-live="polite">ENCRYPTED SIGNAL DETECTED. STANDBY FOR DECRYPTION.</p>
+    <button class="intro-button" id="decryptButton" type="button">DECRYPT MISSION&nbsp; ↗</button>
+    <div class="intro-foot">AUTHORISED PERSONNEL ONLY // 06 FEB 2027</div>
+  </div>
+</div>
 <div class="scroll-progress" id="scrollProgress"></div>
 <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
 <main class="wrap">
-<header class="top"><div class="brand-lockup"><span class="brand-mark">J</span><span>J.A.S. <i>//</i> JUBIN ACTION SQUAD</span></div><div class="top-right"><span class="live-dot"></span><span class="live-label">TRANSMISSION LIVE</span><a href="#team" style="color:var(--gold);font:10px 'DM Mono';text-decoration:none">TEAM PORTAL ↗</a><a href="#admin" style="color:#8b96a6;font:10px 'DM Mono';text-decoration:none">HQ</a><div class="stamp">TOP SECRET</div></div></header>
+<header class="top"><div class="brand-lockup"><span class="brand-mark">J</span><span>JUBIN <i>//</i> THE LAST SQUAD</span></div><div class="top-right"><span class="live-dot"></span><span class="live-label">INVITATION OPEN</span><a href="#team" style="color:var(--gold);font:10px 'DM Mono';text-decoration:none">TEAM LOGIN ↗</a><div class="stamp">PRIVATE INVITE</div></div></header>
 <section id="guestView">
   <section class="hero">
-    <div class="hero-meta"><span class="kicker">EYES ONLY • LEVEL 1000 CLASSIFIED</span><span class="file-tag">FILE NO. JAS-060227</span></div>
+    <div class="hero-meta"><span class="kicker">YOU’RE ON THE LIST • SAVE THE DATE</span><span class="file-tag">FILE NO. JAS-060227</span></div>
     <div class="hero-emblem" aria-hidden="true"><span>J</span><i></i></div>
     <h1>OPERATION <span>JUBIN</span></h1>
-    <div class="hero-rule"><span></span><b>THE FINAL SINGLE-MAN MISSION</b><span></span></div>
-    <p class="sub">One groom. One last mission. A squad of questionable decision-makers. Your presence has been requested for a highly confidential gathering.</p>
+    <div class="hero-rule"><span></span><b>ONE NIGHT • ONE LAST LEGENDARY SEND-OFF</b><span></span></div>
+    <p class="sub">One groom, one legendary night, and the people who made the memories. Join us to give Jubin a send-off he’ll never forget.</p>
     <div class="hero-pills"><span>06 FEB 2027</span><span>•</span><span>BANGALORE</span><span>•</span><span>AGENTS REQUIRED</span></div>
   </section>
   <section class="card center">
-    <div class="transmission-head"><span class="eyebrow">INCOMING TRANSMISSION</span><span class="signal">● ENCRYPTED</span></div>
-    <div class="meme">🚨 AGENT, YOUR PRESENCE IS REQUIRED. 🚨</div>
-    <p>Intelligence confirms that <b>Jubin</b> is about to enter married life with <b>Maria</b>. Before the transfer of custody, the squad must assemble for one final operation.</p>
-    <p class="warning">Warning: Mission may involve uncontrollable laughter, embarrassing stories and absolutely zero useful advice.</p>
-    <button class="btn reveal-btn" id="revealBtn" type="button"><span>🔓</span> DECLASSIFY THE MISSION <b>→</b></button>
-    <p class="micro-hint">TAP TO UNLOCK YOUR MISSION BRIEFING</p>
+    <div class="transmission-head"><span class="eyebrow">A MESSAGE FOR THE SQUAD</span><span class="signal">● ENCRYPTED</span></div>
+    <div class="meme">🚨 JUBIN’S LAST NIGHT OF FREEDOM IS CALLING. 🚨</div>
+    <p><b>Jubin</b> is about to begin a new chapter with <b>Maria</b>. Before that happens, it’s time for one unforgettable night with his favourite people.</p>
+    <p class="warning">Expect big laughs, old stories, questionable decisions and memories worth keeping.</p>
+    <button class="btn reveal-btn" id="revealBtn" type="button"><span>🔓</span> SEE THE PARTY DETAILS <b>→</b></button>
+    <p class="micro-hint">TAP TO VIEW THE DATE, LOCATION & RSVP</p>
   </section>
   <section class="card hidden" id="mission">
     <div class="eyebrow">MISSION BRIEFING // FILE 06-02-27</div>
-    <h2 class="mission-title">THE DETAILS, AGENT.</h2>
+    <h2 class="mission-title">THE PLAN</h2>
     <div class="grid">
-      <div class="detail"><span class="detail-icon">🕶️</span><small>PRIMARY SUSPECT / GROOM</small><strong>Jubin</strong><em>Target: Married life</em></div>
-      <div class="detail"><span class="detail-icon">👑</span><small>THE BOSS / BRIDE</small><strong>Maria</strong><em>Final authority</em></div>
-      <div class="detail"><span class="detail-icon">📅</span><small>DATE OF OPERATION</small><strong>06 February 2027</strong><em>Deployment at 6:00 PM</em></div>
-      <div class="detail"><span class="detail-icon">📍</span><small>SAFEHOUSE / LOCATION</small><strong>Cherry Farms and Resort</strong><em>Bangalore</em></div>
+      <div class="detail"><span class="detail-icon">🕶️</span><small>THE GROOM</small><strong>Jubin</strong><em>Target: Married life</em></div>
+      <div class="detail"><span class="detail-icon">👑</span><small>THE BRIDE</small><strong>Maria</strong><em>Final authority</em></div>
+      <div class="detail"><span class="detail-icon">📅</span><small>DATE & TIME</small><strong>06 February 2027</strong><em>Deployment at 6:00 PM</em></div>
+      <div class="detail"><span class="detail-icon">📍</span><small>VENUE</small><strong>Cherry Farms and Resort</strong><em>Bangalore</em></div>
     </div>
-    <div class="meme">MISSION OBJECTIVE:<br>Give Jubin a legendary send-off before he reports for permanent duty. 🫡</div>
+    <div class="meme">THE PLAN:<br>One last legendary celebration with the squad. 🥂</div>
     <div class="center">
-      <div class="countdown-heading"><span class="eyebrow">TIME LEFT BEFORE DEPLOYMENT</span><span class="countdown-live"><i></i> COUNTING DOWN</span></div>
+      <div class="countdown-heading"><span class="eyebrow">COUNTDOWN TO THE PARTY</span><span class="countdown-live"><i></i> COUNTING DOWN</span></div>
       <div class="timer">
         <div class="timebox"><b id="days">--</b><span>DAYS</span></div>
         <div class="timebox"><b id="hours">--</b><span>HOURS</span></div>
@@ -202,20 +267,21 @@ th{font-size:11px}
         <div class="timebox"><b id="secs">--</b><span>SECONDS</span></div>
       </div>
       <p class="warning">Dress code: Come prepared. Details of the actual dress code will be communicated by command headquarters.</p>
+      <button class="btn" id="proceedRsvp" type="button">ACCEPT THE MISSION &amp; ENLIST ↗</button>
     </div>
   </section>
   <section class="card center hidden" id="rsvp">
-    <div class="eyebrow">CONFIRM YOUR STATUS // RESPONSE REQUIRED</div>
-    <h2 class="mission-title">WILL YOU ACCEPT THE MISSION?</h2>
-    <div class="rsvp-progress"><span></span><b>AGENT ENLISTMENT FORM</b><span></span></div>
-    <p>The squad is counting on you. And Jubin's reputation is already in danger.</p>
+    <div class="eyebrow">KINDLY RSVP</div>
+    <h2 class="mission-title">CAN YOU MAKE IT?</h2>
+    <div class="rsvp-progress"><span></span><b>YOUR RSVP</b><span></span></div>
+    <p>Let us know if you’ll be joining us so we can plan everything.</p>
     <form id="rsvpForm">
-      <label for="guestName">AGENT NAME</label>
+      <label for="guestName">YOUR NAME</label>
       <input id="guestName" name="guestName" type="text" maxlength="80" placeholder="Enter your name" autocomplete="name" required>
-      <label>MISSION STATUS</label>
+      <label>WILL YOU BE THERE?</label>
       <div class="choices">
-        <label class="choice"><input type="radio" name="attendance" value="Attending" required> 🫡 I'M IN</label>
-        <label class="choice"><input type="radio" name="attendance" value="Not attending"> 🏃 CAN'T MAKE IT</label>
+        <label class="choice"><input type="radio" name="attendance" value="Attending" required> YES, I’LL BE THERE</label>
+        <label class="choice"><input type="radio" name="attendance" value="Not attending"> SORRY, CAN’T MAKE IT</label>
       </div>
       <label>DRINK PREFERENCE</label>
       <div class="choices">
@@ -228,29 +294,29 @@ th{font-size:11px}
         <b>NOTE //</b>
         <span>This information is being collected purely for planning purposes. Final arrangements and preferences will be confirmed closer to the event.</span>
       </div>
-      <div style="text-align:center;margin-top:24px"><button class="btn" id="submitBtn" type="submit">📡 SEND RESPONSE TO HQ</button></div>
+      <div style="text-align:center;margin-top:24px"><button class="btn" id="submitBtn" type="submit">SUBMIT RSVP</button></div>
       <div class="status" id="formStatus" role="status" aria-live="polite"></div>
     </form>
   </section>
   <section class="card center hidden" id="final">
-    <div class="meme">LAST WARNING, AGENT:</div>
-    <h2 class="mission-title">WHAT HAPPENS AT THE BACHELOR'S PARTY…</h2>
-    <div class="meme" style="color:#ff5967">STAYS CLASSIFIED. 🤐</div>
-    <p>Phones may capture memories. The squad must protect the evidence.</p>
-    <div class="eyebrow">END OF TRANSMISSION // OVER AND OUT</div>
+    <div class="eyebrow">FINAL TRANSMISSION // CLASSIFIED</div>
+    <h2 class="mission-title" style="font-size:clamp(34px,6vw,54px)">THIS IS NOT A WEDDING INVITATION.</h2>
+    <div class="meme" style="color:var(--gold)">THIS IS A ONCE-IN-A-LIFETIME OPERATION.</div>
+    <div class="meme" style="color:#ff5967">NO EXCUSES. NO RETREATS. ONLY MEMORIES.</div>
+    <div class="eyebrow">SEE YOU IN THE FIELD // OVER AND OUT</div>
   </section>
 </section>
 
 <section id="teamPortalView" class="card hunt-panel hidden">
-  <div class="eyebrow">OPERATION JUBIN // FIELD OPERATIONS</div>
-  <h2>TEAM ACCESS PORTAL</h2>
-  <p class="note">Select your assigned squad and enter its private portal password. Your team will only receive its own clues.</p>
+  <div class="eyebrow">OPERATION JUBIN // TEAM AREA</div>
+  <h2>TEAM LOGIN</h2>
+  <p class="note">Choose your team and enter the password shared with you. Your team’s clues will appear here.</p>
   <form id="teamLoginForm">
-    <label for="teamKey">ASSIGNED TEAM</label>
+    <label for="teamKey">YOUR TEAM</label>
     <select id="teamKey" required><option value="">Select your team</option><option value="alpha">ALPHA</option><option value="bravo">BRAVO</option><option value="charlie">CHARLIE</option><option value="delta">DELTA</option></select>
-    <label for="teamPortalPassword">TEAM PORTAL PASSWORD</label>
+    <label for="teamPortalPassword">TEAM PASSWORD</label>
     <input id="teamPortalPassword" type="password" autocomplete="off" required placeholder="Enter your team's portal password">
-    <div class="inline-actions"><button class="btn" id="teamLoginBtn" type="submit">ACCESS TEAM PORTAL</button><a class="btn secondary" href="#">BACK TO INVITATION</a></div>
+    <div class="inline-actions"><button class="btn" id="teamLoginBtn" type="submit">OPEN TEAM PORTAL</button><a class="btn secondary" href="#">BACK TO INVITATION</a></div>
     <div class="status" id="teamPortalStatus" role="status" aria-live="polite"></div>
   </form>
   <div id="teamMissionView" class="hidden">
@@ -258,9 +324,9 @@ th{font-size:11px}
     <div class="eyebrow" id="portalClueLabel">CURRENT INTELLIGENCE</div>
     <div class="clue-box" id="portalClueText">Your clue will appear here.</div>
     <form id="unlockForm">
-      <label for="unlockCode">ENTER THE CODE FOUND AT THIS LOCATION</label>
+      <label for="unlockCode">ENTER THE CODE FROM YOUR CLUE</label>
       <input id="unlockCode" class="hunt-code" type="text" autocomplete="off" required placeholder="ENTER UNLOCK CODE">
-      <div class="inline-actions"><button class="btn" id="unlockBtn" type="submit">VERIFY & UNLOCK NEXT CLUE</button><button class="btn secondary" id="portalRefreshBtn" type="button">REFRESH STATUS</button><button class="btn secondary" id="portalExitBtn" type="button">SIGN OUT</button></div>
+      <div class="inline-actions"><button class="btn" id="unlockBtn" type="submit">UNLOCK NEXT CLUE</button><button class="btn secondary" id="portalRefreshBtn" type="button">REFRESH</button><button class="btn secondary" id="portalExitBtn" type="button">SIGN OUT</button></div>
       <div class="status" id="unlockStatus" role="status" aria-live="polite"></div>
     </form>
     <div id="portalComplete" class="warning hidden">All three clues are complete. Proceed to the final treasure location. The organiser will record the first team to find it.</div>
@@ -349,10 +415,55 @@ window.addEventListener("resize", updateScrollProgress);
 updateScrollProgress();
 
 const $ = (id) => document.getElementById(id);
+
+// Cinematic opening is skipped for direct admin/team portal links.
+const introOverlay = $("cinematicIntro");
+const introMessage = $("introMessage");
+const decryptButton = $("decryptButton");
+const privateRoute = location.hash === "#admin" || location.hash === "#team";
+if (privateRoute) { introOverlay.remove(); }
+else { document.body.style.overflow = "hidden"; }
+let introStarted = false;
+function typeIntroLine(line, done) {
+  let i = 0; introMessage.textContent = "";
+  const timer = setInterval(() => {
+    introMessage.textContent += line.charAt(i++);
+    if (i >= line.length) { clearInterval(timer); if (done) setTimeout(done, 650); }
+  }, 25);
+}
+function startMissionIntro() {
+  if (introStarted) return; introStarted = true; decryptButton.disabled = true;
+  decryptButton.textContent = "DECRYPTING...";
+  const lines = [
+    "ENCRYPTED SIGNAL VERIFIED.",
+    "YOU HAVE BEEN SELECTED FOR A CLASSIFIED OPERATION.",
+    "TARGET: JUBIN. OBJECTIVE: ONE LAST LEGENDARY SEND-OFF."
+  ];
+  let index = 0;
+  const next = () => {
+    if (index < lines.length) typeIntroLine(lines[index++], next);
+    else {
+      decryptButton.textContent = "ENTER THE OPERATION  ↗";
+      decryptButton.disabled = false;
+      decryptButton.onclick = () => {
+        introOverlay.classList.add("intro-out"); document.body.style.overflow = "";
+        setTimeout(() => introOverlay.remove(), 900);
+      };
+    }
+  };
+  next();
+}
+if (decryptButton && !privateRoute) decryptButton.addEventListener("click", startMissionIntro);
+
 $("revealBtn").addEventListener("click", () => {
-  ["mission", "rsvp", "final"].forEach(id => $(id).classList.remove("hidden"));
-  $("revealBtn").textContent = "MISSION DECLASSIFIED";
+  $("mission").classList.remove("hidden");
+  $("revealBtn").textContent = "MISSION DECLASSIFIED ✓";
+  $("revealBtn").disabled = true;
   $("mission").scrollIntoView({behavior:"smooth", block:"start"});
+});
+$("proceedRsvp").addEventListener("click", () => {
+  $("rsvp").classList.remove("hidden");
+  $("rsvp").scrollIntoView({behavior:"smooth", block:"start"});
 });
 
 function tickCountdown() {
@@ -398,15 +509,17 @@ $("rsvpForm").addEventListener("submit", async (event) => {
     // Deliberately do not request returned rows: public visitors have no read permission.
     const { error } = await supabaseClient.from("guest_submissions").insert(payload);
     if (error) throw error;
-    status.textContent = "✅ Response received by HQ. You are officially on the record, agent.";
+    status.innerHTML = '<div class="registration-success"><div class="success-icon">✓</div><strong>AGENT REGISTERED</strong><p>YOUR RESPONSE HAS BEEN RECEIVED BY HQ.<br>YOU ARE OFFICIALLY ON THE RECORD.</p></div>';
     formElement.reset();
+    $("final").classList.remove("hidden");
+    setTimeout(() => $("final").scrollIntoView({behavior:"smooth", block:"start"}), 450);
   } catch (error) {
     console.error("RSVP submission failed:", error);
     status.textContent = "Transmission failed. Please try again in a moment.";
     status.classList.add("error");
   } finally {
     submitBtn.disabled = false;
-    submitBtn.textContent = "📡 SEND RESPONSE TO HQ";
+    submitBtn.textContent = "SUBMIT RSVP";
   }
 });
 const $a = (id) => document.getElementById(id);
