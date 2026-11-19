@@ -154,26 +154,10 @@ th{font-size:11px}
 }
 
 
-/* CLASSIFIED TREASURE HUNT */
-.hunt-card{border-color:#f0445266;background:radial-gradient(ellipse at 50% 0,#3b1720 0,transparent 55%),linear-gradient(145deg,#151e2bF2,#0c121cF5)}
-.hunt-kicker{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
-.hunt-status{display:inline-flex;align-items:center;gap:8px;border:1px solid #f1cf8355;border-radius:30px;padding:8px 12px;color:var(--gold);font:10px 'DM Mono';letter-spacing:1.4px}
-.hunt-status:before{content:'';width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px currentColor}
-.hunt-status.active{color:#8fe0ad;border-color:#8fe0ad66}
-.hunt-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:22px 0}
-.hunt-team{padding:15px 10px;text-align:center;background:#080e17;border:1px solid #ffffff20;border-radius:10px}
-.hunt-team b{display:block;font:800 22px 'Barlow Condensed';color:var(--gold)}
-.hunt-team span{font:9px 'DM Mono';color:#9aa5b4;letter-spacing:1px}
-.hunt-form{max-width:520px;margin:22px auto;text-align:left}
-.clue-box{max-width:720px;margin:22px auto 0;padding:24px;border:1px solid #f1cf8370;border-radius:13px;background:linear-gradient(145deg,#171b21,#090e15);text-align:center}
-.clue-box .clue-number{font:11px 'DM Mono';letter-spacing:2px;color:var(--red)}
-.clue-box .clue-copy{font-size:clamp(19px,3vw,25px);line-height:1.6;font-weight:700;color:#fff;margin:18px 0;white-space:pre-wrap;overflow-wrap:anywhere}
-.hunt-admin-row{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;padding:15px 0;border-bottom:1px solid #ffffff18}
-.hunt-admin-row:last-child{border-bottom:0}
-.hunt-admin-row strong{display:block;color:#fff;font:800 21px 'Barlow Condensed'}
-.hunt-admin-row small{color:#9aa5b4;font:10px 'DM Mono';letter-spacing:1px}
-.hunt-admin-row .btn{min-height:40px;padding:10px 13px;font-size:11px}
-@media(max-width:600px){.hunt-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hunt-admin-row{grid-template-columns:1fr 1fr}.hunt-admin-row .team-progress{grid-column:1/-1}.hunt-admin-row .btn{width:100%}}
+/* TREASURE HUNT PORTAL + ADMIN CONSOLE */
+.hunt-panel{max-width:760px;margin:34px auto}.hunt-panel h2{font:800 34px 'Barlow Condensed';letter-spacing:1px}.hunt-code{letter-spacing:2px;text-transform:uppercase}.clue-box{background:#080d14;border:1px solid #f1cf8355;border-radius:12px;padding:22px;margin:20px 0;text-align:left;line-height:1.8;white-space:pre-wrap}.team-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.team-progress{border:1px solid #354153;border-radius:12px;padding:15px;background:#090e15}.team-progress h3{font:800 23px 'Barlow Condensed';margin:0 0 8px}.admin-clue-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.admin-clue{background:#090e15;border:1px solid #354153;border-radius:12px;padding:15px}.admin-clue textarea{width:100%;min-height:95px;resize:vertical;padding:12px;border:1px solid #394557;border-radius:9px;background:#090e15;color:white;font:inherit}.admin-clue input{margin-top:8px}.inline-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.inline-actions .btn{width:auto}.muted{color:var(--muted);font-size:12px;line-height:1.6}
+@media(max-width:650px){.team-grid,.admin-clue-grid{grid-template-columns:1fr 1fr}.inline-actions .btn{width:100%}}
+@media(max-width:420px){.team-grid,.admin-clue-grid{grid-template-columns:1fr}}
 
 </style>
 </head>
@@ -181,7 +165,7 @@ th{font-size:11px}
 <div class="scroll-progress" id="scrollProgress"></div>
 <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
 <main class="wrap">
-<header class="top"><div class="brand-lockup"><span class="brand-mark">J</span><span>J.A.S. <i>//</i> JUBIN ACTION SQUAD</span></div><div class="top-right"><span class="live-dot"></span><span class="live-label">TRANSMISSION LIVE</span><div class="stamp">TOP SECRET</div></div></header>
+<header class="top"><div class="brand-lockup"><span class="brand-mark">J</span><span>J.A.S. <i>//</i> JUBIN ACTION SQUAD</span></div><div class="top-right"><span class="live-dot"></span><span class="live-label">TRANSMISSION LIVE</span><a href="#team" style="color:var(--gold);font:10px 'DM Mono';text-decoration:none">TEAM PORTAL ↗</a><a href="#admin" style="color:#8b96a6;font:10px 'DM Mono';text-decoration:none">HQ</a><div class="stamp">TOP SECRET</div></div></header>
 <section id="guestView">
   <section class="hero">
     <div class="hero-meta"><span class="kicker">EYES ONLY • LEVEL 1000 CLASSIFIED</span><span class="file-tag">FILE NO. JAS-060227</span></div>
@@ -255,44 +239,34 @@ th{font-size:11px}
     <p>Phones may capture memories. The squad must protect the evidence.</p>
     <div class="eyebrow">END OF TRANSMISSION // OVER AND OUT</div>
   </section>
-
-  <section class="card center hunt-card" id="treasureHunt">
-    <div class="hunt-kicker"><span class="eyebrow">SPECIAL EVENT // FIELD OPERATION</span><span class="hunt-status" id="huntPublicStatus">AWAITING HQ ACTIVATION</span></div>
-    <h2 class="mission-title" style="font-size:clamp(38px,7vw,62px);margin:18px 0 8px">THE HUNT IS ON.</h2>
-    <div class="meme">FOUR TEAMS. FOUR TRAILS. ONE TREASURE.</div>
-    <p>On event day, your squad will receive its access code. Enter the correct team credentials to receive your current clue. Follow the trail, stay together and get to the final treasure before the rival teams.</p>
-    <div class="hunt-grid">
-      <div class="hunt-team"><b>ALPHA</b><span>PORTAL 01</span></div>
-      <div class="hunt-team"><b>BRAVO</b><span>PORTAL 02</span></div>
-      <div class="hunt-team"><b>CHARLIE</b><span>PORTAL 03</span></div>
-      <div class="hunt-team"><b>DELTA</b><span>PORTAL 04</span></div>
-    </div>
-    <button class="btn reveal-btn" id="openHuntPortalBtn" type="button">🔐 ACCESS TEAM PORTAL <b>→</b></button>
-    <div id="huntPortal" class="hidden">
-      <form class="hunt-form" id="teamAccessForm">
-        <label for="huntTeam">SELECT YOUR UNIT</label>
-        <select id="huntTeam" name="team" required>
-          <option value="">Choose your team</option>
-          <option value="alpha">TEAM ALPHA</option>
-          <option value="bravo">TEAM BRAVO</option>
-          <option value="charlie">TEAM CHARLIE</option>
-          <option value="delta">TEAM DELTA</option>
-        </select>
-        <label for="huntPassword">TEAM ACCESS CODE</label>
-        <input id="huntPassword" name="password" type="password" placeholder="Enter your team's password" autocomplete="off" required>
-        <div style="text-align:center;margin-top:20px"><button class="btn" id="huntLoginBtn" type="submit">DECRYPT TEAM MISSION</button></div>
-        <div class="status" id="teamPortalStatus" role="status" aria-live="polite"></div>
-      </form>
-      <div class="clue-box hidden" id="teamCluePanel" aria-live="polite">
-        <div class="eyebrow" id="teamClueTeam">TEAM MISSION</div>
-        <div class="clue-number" id="teamClueNumber">CLUE 01 / 03</div>
-        <div class="clue-copy" id="teamClueText"></div>
-        <div class="meme" id="teamCompletedMessage" style="font-size:24px"></div>
-        <button class="btn secondary" id="refreshTeamClueBtn" type="button">↻ CHECK FOR HQ UPDATE</button>
-      </div>
-    </div>
-  </section>
 </section>
+
+<section id="teamPortalView" class="card hunt-panel hidden">
+  <div class="eyebrow">OPERATION JUBIN // FIELD OPERATIONS</div>
+  <h2>TEAM ACCESS PORTAL</h2>
+  <p class="note">Select your assigned squad and enter its private portal password. Your team will only receive its own clues.</p>
+  <form id="teamLoginForm">
+    <label for="teamKey">ASSIGNED TEAM</label>
+    <select id="teamKey" required><option value="">Select your team</option><option value="alpha">ALPHA</option><option value="bravo">BRAVO</option><option value="charlie">CHARLIE</option><option value="delta">DELTA</option></select>
+    <label for="teamPortalPassword">TEAM PORTAL PASSWORD</label>
+    <input id="teamPortalPassword" type="password" autocomplete="off" required placeholder="Enter your team's portal password">
+    <div class="inline-actions"><button class="btn" id="teamLoginBtn" type="submit">ACCESS TEAM PORTAL</button><a class="btn secondary" href="#">BACK TO INVITATION</a></div>
+    <div class="status" id="teamPortalStatus" role="status" aria-live="polite"></div>
+  </form>
+  <div id="teamMissionView" class="hidden">
+    <div class="grid"><div class="detail"><small>YOUR SQUAD</small><strong id="portalTeamName">—</strong></div><div class="detail"><small>MISSION PROGRESS</small><strong id="portalProgress">0 / 3 clues</strong></div></div>
+    <div class="eyebrow" id="portalClueLabel">CURRENT INTELLIGENCE</div>
+    <div class="clue-box" id="portalClueText">Your clue will appear here.</div>
+    <form id="unlockForm">
+      <label for="unlockCode">ENTER THE CODE FOUND AT THIS LOCATION</label>
+      <input id="unlockCode" class="hunt-code" type="text" autocomplete="off" required placeholder="ENTER UNLOCK CODE">
+      <div class="inline-actions"><button class="btn" id="unlockBtn" type="submit">VERIFY & UNLOCK NEXT CLUE</button><button class="btn secondary" id="portalRefreshBtn" type="button">REFRESH STATUS</button><button class="btn secondary" id="portalExitBtn" type="button">SIGN OUT</button></div>
+      <div class="status" id="unlockStatus" role="status" aria-live="polite"></div>
+    </form>
+    <div id="portalComplete" class="warning hidden">All three clues are complete. Proceed to the final treasure location. The organiser will record the first team to find it.</div>
+  </div>
+</section>
+
 <section id="loginView" class="card auth-card hidden">
   <div class="eyebrow">RESTRICTED ACCESS // AUTHENTICATION REQUIRED</div>
   <h1 style="font-size:58px">COMMAND <span>CENTRE</span></h1>
@@ -340,22 +314,17 @@ th{font-size:11px}
     <div class="status" id="dashboardStatus" role="status" aria-live="polite"></div>
   </section>
 
-  <section class="card hunt-card" id="treasureAdminPanel">
-    <div class="eyebrow">FIELD OPERATIONS // TREASURE HUNT CONTROL</div>
-    <h2 class="mission-title">TREASURE HUNT COMMAND</h2>
-    <p class="note">Start or pause the hunt and manually release the next clue to each team. Each team advances independently. Stage 3 is the shared final destination; stage 4 means the team has completed all clues.</p>
-    <div class="toolbar">
-      <span class="hunt-status" id="huntAdminStatus">STATUS UNKNOWN</span>
-      <button class="btn" id="startHuntBtn" type="button">▶ START HUNT</button>
-      <button class="btn secondary" id="pauseHuntBtn" type="button">Ⅱ PAUSE HUNT</button>
-      <button class="btn secondary" id="refreshHuntAdminBtn" type="button">↻ REFRESH STATUS</button>
-    </div>
-    <div id="huntAdminTeams">
-      <div class="note">Treasure hunt status will appear here after the database setup is complete.</div>
-    </div>
-    <div class="status" id="huntAdminMessage" role="status" aria-live="polite"></div>
+  <section class="card" id="treasureAdminPanel">
+    <div class="eyebrow">FIELD OPERATIONS // TREASURE HUNT</div><h2 class="mission-title">TEAM PROGRESS & CLUE CONTROL</h2>
+    <p class="note">Create or edit each team's three clues and their unique unlock codes. Leave the unlock-code field blank to keep the existing code unchanged. Codes are hashed in Supabase and are never displayed back here.</p>
+    <div class="toolbar"><button class="btn" id="huntRefreshBtn" type="button">REFRESH HUNT STATUS</button><button class="btn secondary" id="huntToggleBtn" type="button">ACTIVATE / PAUSE HUNT</button></div>
+    <div class="status" id="huntAdminStatus" role="status" aria-live="polite"></div><div class="team-grid" id="teamProgressGrid"></div>
+    <h3 class="mission-title" style="margin-top:28px">EDIT TEAM CLUES</h3>
+    <div class="toolbar"><label for="adminTeamSelect" style="margin:0">SELECT TEAM</label><select id="adminTeamSelect" style="max-width:220px"><option value="alpha">ALPHA</option><option value="bravo">BRAVO</option><option value="charlie">CHARLIE</option><option value="delta">DELTA</option></select></div>
+    <div class="admin-clue-grid" id="adminClueEditor"></div>
+    <h3 class="mission-title" style="margin-top:28px">WINNER CONTROL</h3><p class="muted">Use this after a team physically finds the shared final treasure. The first recorded team becomes the winner.</p>
+    <div class="toolbar"><select id="winnerTeamSelect" style="max-width:220px"><option value="alpha">ALPHA</option><option value="bravo">BRAVO</option><option value="charlie">CHARLIE</option><option value="delta">DELTA</option></select><button class="btn" id="markWinnerBtn" type="button">MARK TEAM AS WINNER</button><button class="btn secondary" id="undoTeamSelectBtn" type="button">UNDO LAST UNLOCK FOR SELECTED TEAM</button></div>
   </section>
-
 <footer class="foot">J.A.S. INTELLIGENCE DIVISION • END OF TRANSMISSION</footer>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -410,7 +379,7 @@ $("rsvpForm").addEventListener("submit", async (event) => {
     status.classList.add("error");
     return;
   }
-  const form = new FormData(formElement);
+  const form = new FormData(event.currentTarget);
   const payload = {
     guest_name: String(form.get("guestName") || "").trim(),
     attendance: form.get("attendance"),
@@ -498,6 +467,7 @@ async function loadSubmissions() {
   submissions = data || [];
   renderRows();
   $a("dashboardStatus").textContent = `Loaded ${submissions.length} guest response(s).`;
+  try { await loadHuntAdmin(); } catch (huntError) { huntMessage(huntError.message || "Treasure-hunt controls could not load. Run the migration SQL first.", true); }
 }
 function renderRows() {
   if (!currentAdmin || location.hash !== "#admin") return;
@@ -538,7 +508,6 @@ async function enterDashboard(user) {
     console.error(error);
     $a("dashboardStatus").textContent = "Could not load guest responses. Check your Supabase RLS policies and connection.";
   }
-  await refreshTreasureAdmin();
 }
 $a("loginForm").addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -606,141 +575,99 @@ $a("exportBtn").addEventListener("click", async () => {
   }
 });
 
-// OPERATION JUBIN TREASURE HUNT — server-side password validation and admin-controlled clue release.
-let lastTeamCredentials = null;
-let treasureAdminBusy = false;
-const teamNames = {alpha:"TEAM ALPHA",bravo:"TEAM BRAVO",charlie:"TEAM CHARLIE",delta:"TEAM DELTA"};
-function showTeamClue(result) {
-  $("teamCluePanel").classList.remove("hidden");
-  $("teamClueTeam").textContent = result.team_name || "TEAM MISSION";
-  if (result.completed) {
-    $("teamClueNumber").textContent = "MISSION COMPLETE // 03 OF 03";
-    $("teamClueText").textContent = "ALL THREE CLUES SOLVED.";
-    $("teamCompletedMessage").textContent = result.message || "Proceed to the common treasure. First team to reach it wins.";
+// TEAM PORTAL: all validation happens in Supabase RPCs; no clue codes are stored client-side.
+let activeTeamKey = null;
+let activeTeamPassword = null;
+let huntStatusCache = null;
+const TEAM_LABELS = {alpha:"ALPHA",bravo:"BRAVO",charlie:"CHARLIE",delta:"DELTA"};
+function setPortalStatus(message, isError=false){
+  const el=$a("teamPortalStatus"); el.textContent=message; el.classList.toggle("error",isError);
+}
+function setUnlockStatus(message,isError=false){
+  const el=$a("unlockStatus"); el.textContent=message; el.classList.toggle("error",isError);
+}
+function renderTeamPortal(data){
+  $a("teamMissionView").classList.remove("hidden");
+  $a("portalTeamName").textContent=data.team_name || TEAM_LABELS[data.team_key] || data.team_key;
+  $a("portalProgress").textContent=`${Math.min(Number(data.clues_completed)||0,3)} / 3 clues`;
+  if (data.current_stage > 3 || data.all_clues_completed) {
+    $a("portalClueLabel").textContent="ALL CLUES DECLASSIFIED";
+    $a("portalClueText").textContent="Your squad has completed all three clues. Move to the final treasure location.";
+    $a("unlockForm").classList.add("hidden");
+    $a("portalComplete").classList.remove("hidden");
+  } else if (data.clue_ready && data.clue_text) {
+    $a("portalClueLabel").textContent=`CURRENT INTELLIGENCE // CLUE ${data.current_stage || data.unlocked_stage}`;
+    $a("portalClueText").textContent=data.clue_text;
+    $a("unlockForm").classList.remove("hidden");
+    $a("portalComplete").classList.add("hidden");
   } else {
-    $("teamClueNumber").textContent = `CLUE ${String(result.stage).padStart(2,"0")} / 03`;
-    $("teamClueText").textContent = result.clue_text || "No clue has been released yet.";
-    $("teamCompletedMessage").textContent = "";
+    $a("portalClueLabel").textContent="INTELLIGENCE PENDING";
+    $a("portalClueText").textContent="HQ has not published this clue yet. Check back shortly.";
+    $a("unlockForm").classList.add("hidden");
+    $a("portalComplete").classList.add("hidden");
   }
 }
-async function requestTeamClue() {
-  if (!lastTeamCredentials) return;
-  $("teamPortalStatus").textContent = "Contacting command headquarters…";
-  $("teamPortalStatus").classList.remove("error");
-  try {
-    const {data,error} = await supabaseClient.rpc("oj_treasure_enter", {
-      p_team_key:lastTeamCredentials.team,
-      p_password:lastTeamCredentials.password
-    });
-    if (error) throw error;
-    if (!data?.ok) {
-      $("teamCluePanel").classList.add("hidden");
-      $("teamPortalStatus").textContent = data?.message || "Access denied.";
-      $("teamPortalStatus").classList.add("error");
-      return;
-    }
-    $("teamPortalStatus").textContent = "Secure connection established. Mission data received.";
-    showTeamClue(data);
-    $("huntPublicStatus").textContent = "HUNT ACTIVE // FIELD TEAMS DEPLOYED";
-    $("huntPublicStatus").classList.add("active");
-  } catch(error) {
-    console.error("Treasure hunt team portal:",error);
-    $("teamPortalStatus").textContent = "Portal unavailable. Confirm the treasure-hunt SQL setup has been run in Supabase.";
-    $("teamPortalStatus").classList.add("error");
-  }
+async function refreshTeamPortal(){
+  if(!activeTeamKey || !activeTeamPassword) return;
+  const {data,error}=await supabaseClient.rpc("oj_treasure_enter",{p_team_key:activeTeamKey,p_password:activeTeamPassword});
+  if(error) throw error; renderTeamPortal(data);
 }
-$("openHuntPortalBtn").addEventListener("click", () => {
-  $("huntPortal").classList.toggle("hidden");
-  if (!$("huntPortal").classList.contains("hidden")) $("huntTeam").focus();
+$a("teamLoginForm").addEventListener("submit",async event=>{
+  event.preventDefault(); const btn=$a("teamLoginBtn"); btn.disabled=true; setPortalStatus("Verifying squad credentials…");
+  try{
+    const team=$a("teamKey").value; const password=$a("teamPortalPassword").value;
+    const {data,error}=await supabaseClient.rpc("oj_treasure_enter",{p_team_key:team,p_password:password});
+    if(error) throw error; activeTeamKey=team; activeTeamPassword=password;
+    setPortalStatus("Access granted. Welcome to your team portal."); renderTeamPortal(data);
+  }catch(error){ console.error(error); setPortalStatus(error.message||"Unable to access team portal.",true); }
+  finally{btn.disabled=false;}
 });
-$("teamAccessForm").addEventListener("submit", async (event) => {
-  event.preventDefault();
-  const formElement = event.currentTarget;
-  const form = new FormData(formElement);
-  lastTeamCredentials = {
-    team:String(form.get("team") || "").trim().toLowerCase(),
-    password:String(form.get("password") || "")
-  };
-  $("huntLoginBtn").disabled = true;
-  await requestTeamClue();
-  $("huntLoginBtn").disabled = false;
+$a("unlockForm").addEventListener("submit",async event=>{
+  event.preventDefault(); if(!activeTeamKey||!activeTeamPassword) return;
+  const btn=$a("unlockBtn"); btn.disabled=true; setUnlockStatus("Checking unlock code with HQ…");
+  try{
+    const {data,error}=await supabaseClient.rpc("oj_treasure_submit_unlock",{p_team_key:activeTeamKey,p_portal_password:activeTeamPassword,p_unlock_code:$a("unlockCode").value.trim()});
+    if(error) throw error; $a("unlockCode").value="";
+    setUnlockStatus(data.all_clues_completed?"All clues completed. Move to the final treasure.":"Code accepted. Next clue unlocked.");
+    await refreshTeamPortal();
+  }catch(error){console.error(error);setUnlockStatus(error.message||"Code could not be verified.",true);}
+  finally{btn.disabled=false;}
 });
-$("refreshTeamClueBtn").addEventListener("click", requestTeamClue);
+$a("portalRefreshBtn").addEventListener("click",async()=>{try{await refreshTeamPortal();setUnlockStatus("Portal status refreshed.");}catch(e){setUnlockStatus(e.message,true);}});
+$a("portalExitBtn").addEventListener("click",()=>{activeTeamKey=null;activeTeamPassword=null;$a("teamMissionView").classList.add("hidden");$a("teamPortalPassword").value="";$a("teamKey").value="";setPortalStatus("Signed out of team portal.");});
 
-async function refreshTreasureAdmin() {
-  if (!currentAdmin || location.hash !== "#admin" || treasureAdminBusy) return;
-  treasureAdminBusy = true;
-  $("huntAdminMessage").textContent = "Synchronising field units…";
-  try {
-    await requireAdmin();
-    const {data,error} = await supabaseClient.rpc("oj_treasure_admin_status");
-    if (error) throw error;
-    const active = Boolean(data?.active);
-    const status = $("huntAdminStatus");
-    status.textContent = active ? "HUNT ACTIVE" : "HUNT ON STANDBY";
-    status.classList.toggle("active",active);
-    $("startHuntBtn").disabled = active;
-    $("pauseHuntBtn").disabled = !active;
-    const teams = Array.isArray(data?.teams) ? data.teams : [];
-    const completedTeams = teams.filter(team => Number(team.stage) >= 4 && team.completed_at).sort((a,b) => new Date(a.completed_at) - new Date(b.completed_at));
-    const winnerTeamKey = completedTeams[0]?.team_key;
-    $("huntAdminTeams").innerHTML = teams.map(team => {
-      const stage = Number(team.stage || 1);
-      const completed = stage >= 4;
-      const next = completed ? "ALL CLUES RELEASED" : `CURRENT: CLUE ${stage} / 03`;
-      const button = completed ? "TEAM COMPLETED" : (stage === 3 ? "MARK TEAM FINISHED" : `UNLOCK CLUE ${stage+1}`);
-      return `<div class="hunt-admin-row">
-        <div class="team-progress"><strong>${escapeHtml(team.team_name || teamNames[team.team_key] || team.team_key)}</strong><small>${escapeHtml(next)}</small></div>
-        <span class="pill ${completed ? "" : "no"}">${team.team_key === winnerTeamKey ? "🏆 FIRST TO FINISH" : (completed ? "COMPLETE" : `STAGE ${stage}`)}</span>
-        <button class="btn secondary" type="button" data-advance-team="${escapeHtml(team.team_key)}" ${completed || !active ? "disabled" : ""}>${button}</button>
-      </div>`;
-    }).join("") || '<div class="note">No teams configured. Run the treasure-hunt SQL setup first.</div>';
-    $("huntAdminMessage").textContent = "Team progress synchronised. Clue releases are manual.";
-  } catch(error) {
-    console.error("Treasure hunt admin status:",error);
-    $("huntAdminMessage").textContent = "Could not load treasure-hunt controls. Run the SQL setup and verify your admin_users entry.";
-  } finally {
-    treasureAdminBusy = false;
-  }
+// ADMIN TREASURE-HUNT CONTROLS. Every RPC is protected again by admin_users on the server.
+function huntMessage(message,isError=false){const el=$a("huntAdminStatus");el.textContent=message;el.classList.toggle("error",isError);}
+function renderHuntAdmin(data){
+  huntStatusCache=data;
+  $a("huntToggleBtn").textContent=data.is_active?"PAUSE TREASURE HUNT":"ACTIVATE TREASURE HUNT";
+  const teams=data.teams||[];
+  $a("teamProgressGrid").innerHTML=teams.map(t=>`<div class="team-progress"><h3>${escapeHtml(t.team_name||TEAM_LABELS[t.team_key]||t.team_key)}</h3><div class="muted">Progress: ${Math.min(Number(t.clues_completed)||0,3)}/3 clues</div><div class="muted">Current stage: ${t.current_stage}/4</div><div class="muted">Winner: ${t.is_winner?"YES":"No"}</div><div class="muted">Clues configured: ${(t.clues||[]).length}/3</div>${t.treasure_found_at?`<div class="pill">Found ${escapeHtml(new Date(t.treasure_found_at).toLocaleString())}</div>`:""}</div>`).join("");
+  renderClueEditor();
 }
-async function setTreasureHuntActive(active) {
-  try {
-    await requireAdmin();
-    const {error} = await supabaseClient.rpc("oj_treasure_admin_set_active",{p_active:active});
-    if (error) throw error;
-    $("huntAdminMessage").textContent = active ? "Hunt activated. Team Alpha, Bravo, Charlie and Delta may enter their portals." : "Hunt paused. Team portals are temporarily locked.";
-    await refreshTreasureAdmin();
-  } catch(error) {
-    console.error(error);
-    $("huntAdminMessage").textContent = error.message || "Could not update hunt status.";
-  }
+function renderClueEditor(){
+  const team=$a("adminTeamSelect").value; const row=(huntStatusCache?.teams||[]).find(t=>t.team_key===team); const clues=row?.clues||[];
+  $a("adminClueEditor").innerHTML=[1,2,3].map(n=>{const clue=clues.find(c=>Number(c.clue_number)===n);return `<div class="admin-clue"><div class="eyebrow">${escapeHtml(TEAM_LABELS[team])} // CLUE ${n}</div><label for="clueText${n}">CLUE TEXT</label><textarea id="clueText${n}" maxlength="2000" placeholder="Enter the clue for this team">${escapeHtml(clue?.clue_text||"")}</textarea><label for="clueCode${n}">UNLOCK PASSWORD ${clue?.password_set?"(SET — BLANK KEEPS CURRENT)":"(NOT SET)"}</label><input id="clueCode${n}" type="password" autocomplete="new-password" placeholder="Enter unique code for this team / clue"><button class="btn" type="button" data-save-clue="${n}" style="margin-top:12px;width:100%">SAVE CLUE ${n}</button><div class="muted">Unlock code status: ${clue?.password_set?"Configured":"Not configured"}</div></div>`;}).join("");
 }
-$("startHuntBtn").addEventListener("click", () => setTreasureHuntActive(true));
-$("pauseHuntBtn").addEventListener("click", () => setTreasureHuntActive(false));
-$("refreshHuntAdminBtn").addEventListener("click", refreshTreasureAdmin);
-$("huntAdminTeams").addEventListener("click", async (event) => {
-  const button = event.target.closest("[data-advance-team]");
-  if (!button) return;
-  const team = button.dataset.advanceTeam;
-  const teamName = teamNames[team] || team.toUpperCase();
-  if (!confirm(`Manually release the next clue to ${teamName}? This cannot be undone from the dashboard.`)) return;
-  button.disabled = true;
-  try {
-    await requireAdmin();
-    const {data,error} = await supabaseClient.rpc("oj_treasure_admin_advance",{p_team_key:team});
-    if (error) throw error;
-    $("huntAdminMessage").textContent = data >= 4 ? `${teamName} has completed all three clues. Final destination revealed.` : `Clue ${data} released to ${teamName}.`;
-    await refreshTreasureAdmin();
-  } catch(error) {
-    console.error(error);
-    $("huntAdminMessage").textContent = error.message || "Could not release clue.";
-    button.disabled = false;
-  }
+async function loadHuntAdmin(){await requireAdmin();huntMessage("Loading treasure-hunt status…");const {data,error}=await supabaseClient.rpc("oj_treasure_admin_status");if(error)throw error;renderHuntAdmin(data);huntMessage(`Hunt status loaded. ${data.teams?.length||0} teams registered.`);}
+$a("huntRefreshBtn").addEventListener("click",async()=>{try{await loadHuntAdmin();}catch(e){huntMessage(e.message||"Could not load hunt status.",true);}});
+$a("adminTeamSelect").addEventListener("change",renderClueEditor);
+$a("adminClueEditor").addEventListener("click",async event=>{
+  const n=Number(event.target?.dataset?.saveClue);if(!n)return;
+  try{await requireAdmin();const team=$a("adminTeamSelect").value;const text=$a(`clueText${n}`).value.trim();const code=$a(`clueCode${n}`).value.trim();
+    const {error}=await supabaseClient.rpc("oj_treasure_admin_save_clue",{p_team_key:team,p_clue_number:n,p_clue_text:text,p_unlock_code:code||null});if(error)throw error;
+    huntMessage(`${TEAM_LABELS[team]} clue ${n} saved. ${code?"Unlock password updated.":"Existing unlock password unchanged."}`);await loadHuntAdmin();
+  }catch(e){huntMessage(e.message||"Could not save clue.",true);}
 });
+$a("huntToggleBtn").addEventListener("click",async()=>{try{await requireAdmin();const next=!huntStatusCache?.is_active;const {error}=await supabaseClient.rpc("oj_treasure_admin_set_active",{p_active:next});if(error)throw error;await loadHuntAdmin();huntMessage(next?"Treasure hunt activated.":"Treasure hunt paused.");}catch(e){huntMessage(e.message||"Could not update hunt status.",true);}});
+$a("undoTeamSelectBtn").addEventListener("click",async()=>{const team=$a("winnerTeamSelect").value;if(!confirm(`Undo the latest clue unlock for ${TEAM_LABELS[team]}?`))return;try{await requireAdmin();const {error}=await supabaseClient.rpc("oj_treasure_admin_undo",{p_team_key:team});if(error)throw error;await loadHuntAdmin();huntMessage(`Latest unlock undone for ${TEAM_LABELS[team]}.`);}catch(e){huntMessage(e.message||"Undo failed.",true);}});
+$a("markWinnerBtn").addEventListener("click",async()=>{const team=$a("winnerTeamSelect").value;if(!confirm(`Record ${TEAM_LABELS[team]} as the first team to find the treasure? This cannot be changed from this screen.`))return;try{await requireAdmin();const {error}=await supabaseClient.rpc("oj_treasure_admin_mark_winner",{p_team_key:team});if(error)throw error;await loadHuntAdmin();huntMessage(`${TEAM_LABELS[team]} recorded as the winner.`);}catch(e){huntMessage(e.message||"Could not record winner.",true);}});
 
 async function setAppRoute() {
   const isAdminRoute = location.hash === "#admin";
-  $a("guestView").classList.toggle("hidden", isAdminRoute);
+  const isTeamRoute = location.hash === "#team";
+  $a("guestView").classList.toggle("hidden", isAdminRoute || isTeamRoute);
+  $a("teamPortalView").classList.toggle("hidden", !isTeamRoute);
   if (!isAdminRoute) {
     $a("loginView").classList.add("hidden");
     $a("dashboardView").classList.add("hidden");
