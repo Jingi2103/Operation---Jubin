@@ -255,40 +255,55 @@ function tickCountdown() {
 tickCountdown();
 setInterval(tickCountdown, 1000);
 
+sion code
+Use this corrected version:
 $("rsvpForm").addEventListener("submit", async (event) => {
   event.preventDefault();
+
+  const formElement = event.currentTarget;
   const submitBtn = $("submitBtn");
   const status = $("formStatus");
-  if (SUPABASE_URL.includes("YOUR_SUPABASE") || SUPABASE_PUBLISHABLE_KEY.includes("YOUR_SUPABASE")) {
-    status.textContent = "HQ connection is not configured yet. Please contact the organiser.";
-    status.classList.add("error");
-    return;
-  }
-  const form = new FormData(event.currentTarget);
+
+  const form = new FormData(formElement);
+
   const payload = {
     guest_name: String(form.get("guestName") || "").trim(),
     attendance: form.get("attendance"),
     drink_preference: form.get("drink")
   };
+
   if (!payload.guest_name || payload.guest_name.length > 80) {
-    status.textContent = "Please enter a valid name (maximum 80 characters).";
+    status.textContent = "Please enter a valid name.";
     status.classList.add("error");
     return;
   }
+
   submitBtn.disabled = true;
-  submitBtn.textContent = "TRANSMITTING…";
+  submitBtn.textContent = "TRANSMITTING...";
   status.classList.remove("error");
-  status.textContent = "Sending your response securely to HQ…";
+  status.textContent = "Sending your response securely to HQ...";
+
   try {
-    // Deliberately do not request returned rows: public visitors have no read permission.
-    const { error } = await supabaseClient.from("guest_submissions").insert(payload);
+    const { error } = await supabaseClient
+      .from("guest_submissions")
+      .insert(payload);
+
     if (error) throw error;
-    status.textContent = "✅ Response received by HQ. You are officially on the record, agent.";
-    event.currentTarget.reset();
+
+    // Successful submission
+    status.textContent =
+      "✅ Response received by HQ. You are officially on the record, agent.";
+
+    formElement.reset();
+
   } catch (error) {
     console.error("RSVP submission failed:", error);
-    status.textContent = "Transmission failed. Please try again in a moment.";
+
+    status.textContent =
+      "Transmission failed. Please try again in a moment.";
+
     status.classList.add("error");
+
   } finally {
     submitBtn.disabled = false;
     submitBtn.textContent = "📡 SEND RESPONSE TO HQ";
