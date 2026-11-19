@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080a0e">
+<title>Operation Jubin | Classified Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080a0e;--panel:#111722;--red:#e83242;--gold:#e8c77a;--white:#f3f1eb;--muted:#a6adba;--line:#343d4b;--green:#8fe0ad}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 50% 0,#242a34 0,transparent 48%),var(--bg);color:var(--white);font-family:Inter,system-ui,sans-serif}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.08;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.3'/%3E%3C/svg%3E")}
+.wrap{width:min(1050px,92%);margin:auto;padding:24px 0 60px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:14px;font:11px 'DM Mono',monospace;letter-spacing:2px;color:var(--muted)}
+.stamp{color:#ff5967;border:2px solid var(--red);padding:8px 12px;transform:rotate(-3deg);font-weight:bold}
+.hero{text-align:center;padding:65px 0 30px}
+.kicker,.eyebrow{font:12px 'DM Mono',monospace;letter-spacing:3px;color:var(--gold)}
+h1{font:900 clamp(56px,12vw,112px)/.82 'Barlow Condensed',sans-serif;letter-spacing:-2px;margin:22px 0;text-transform:uppercase}
+h1 span{display:block;color:var(--red);text-shadow:0 0 32px #e8324255}
+.sub{max-width:680px;margin:22px auto;color:#d1d5dc;line-height:1.7;font-size:17px}
+.card{background:linear-gradient(145deg,#171e29,#0d121a);border:1px solid var(--line);border-radius:18px;padding:clamp(20px,4vw,34px);box-shadow:0 22px 65px #0008;margin:20px 0}
+.center{text-align:center}
+.warning{border-left:3px solid var(--gold);padding:5px 0 5px 14px;text-align:left;color:#d5d8df;line-height:1.6}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:9px;padding:14px 20px;background:var(--red);color:white;font-weight:900;cursor:pointer;text-decoration:none}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.secondary{background:#252e3b;border:1px solid #465365}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:20px 0}
+.detail,.stat{background:#090e15;border:1px solid #303b4b;border-radius:12px;padding:17px}
+.detail small,.stat small{display:block;font:10px 'DM Mono',monospace;letter-spacing:1.5px;color:var(--muted);margin-bottom:8px}
+.detail strong{font-size:17px}
+.mission-title{font:800 30px 'Barlow Condensed',sans-serif;letter-spacing:1px}
+.meme{font:800 clamp(22px,4vw,32px)/1.2 'Barlow Condensed',sans-serif;color:var(--gold);text-align:center;padding:15px}
+.timer,.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:22px 0}
+.timebox{background:#080c12;border:1px solid #303b4b;border-radius:12px;padding:14px 5px}
+.timebox b{display:block;font:800 clamp(26px,6vw,42px) 'Barlow Condensed',sans-serif}
+.timebox span{font:10px 'DM Mono',monospace;color:var(--muted);letter-spacing:1px}
+label{display:block;color:#cbd1db;font:700 11px 'DM Mono',monospace;letter-spacing:1px;margin:16px 0 7px}
+input[type=text],input[type=email],input[type=password],select{width:100%;padding:14px;border:1px solid #394557;border-radius:9px;background:#090e15;color:white;font:inherit}
+.choices{display:flex;flex-wrap:wrap;gap:9px}
+.choice{display:flex;align-items:center;gap:8px;background:#0a1018;border:1px solid #354153;border-radius:30px;padding:11px 14px;font-size:13px;color:#e9edf4}
+.choice input{accent-color:var(--red)}
+form{max-width:620px;margin:20px auto 0;text-align:left}
+.status{min-height:24px;margin-top:14px;color:var(--green);font-weight:700;font-size:14px}
+.hidden{display:none!important}
+.stats{grid-template-columns:repeat(4,1fr)}
+.stat b{display:block;font:800 36px 'Barlow Condensed',sans-serif;margin-top:8px}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0}
+.toolbar input{max-width:320px}
+.tablewrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:650px}
+th,td{text-align:left;padding:13px 10px;border-bottom:1px solid #303b4b;font-size:13px}
+th{font:10px 'DM Mono',monospace;letter-spacing:1px;color:var(--muted)}
+.pill{display:inline-block;padding:5px 8px;border-radius:20px;background:#173326;color:var(--green);font-size:11px}
+.pill.no{background:#3a2025;color:#ff9aa3}
+.foot{text-align:center;color:#778191;font:10px 'DM Mono',monospace;letter-spacing:1.5px;margin-top:35px}
+.note{color:var(--muted);font-size:13px;line-height:1.6}
+.error{color:#ff9aa3}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.hero{padding-top:48px}.timer,.stats{grid-template-columns:repeat(2,1fr)}.top{font-size:9px}}
+
+
+.auth-card{max-width:520px;margin:70px auto}
+.auth-note{min-height:22px;margin-top:12px;color:#ff9aa3;font-size:13px}
+
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="top"><div>J.A.S. // JUBIN ACTION SQUAD</div><div class="stamp">TOP SECRET</div></header>
+<section id="guestView">
+  <section class="hero">
+    <div class="kicker">EYES ONLY • LEVEL 1000 CLASSIFIED</div>
+    <h1>OPERATION <span>JUBIN</span></h1>
+    <p class="sub">One groom. One last mission. A squad of questionable decision-makers. Your presence has been requested for a highly confidential gathering.</p>
+  </section>
+  <section class="card center">
+    <div class="eyebrow">INCOMING TRANSMISSION</div>
+    <div class="meme">🚨 AGENT, YOUR PRESENCE IS REQUIRED. 🚨</div>
+    <p>Intelligence confirms that <b>Jubin</b> is about to enter married life with <b>Maria</b>. Before the transfer of custody, the squad must assemble for one final operation.</p>
+    <p class="warning">Warning: Mission may involve uncontrollable laughter, embarrassing stories and absolutely zero useful advice.</p>
+    <button class="btn" id="revealBtn" type="button">🔓 DECLASSIFY THE MISSION</button>
+  </section>
+  <section class="card hidden" id="mission">
+    <div class="eyebrow">MISSION BRIEFING // FILE 06-02-27</div>
+    <h2 class="mission-title">THE DETAILS, AGENT.</h2>
+    <div class="grid">
+      <div class="detail"><small>PRIMARY SUSPECT / GROOM</small><strong>Jubin 🕶️</strong></div>
+      <div class="detail"><small>THE BOSS / BRIDE</small><strong>Maria 👑</strong></div>
+      <div class="detail"><small>DATE OF OPERATION</small><strong>06 February 2027 • 6:00 PM</strong></div>
+      <div class="detail"><small>SAFEHOUSE / LOCATION</small><strong>Cherry Farms and Resort, Bangalore</strong></div>
+    </div>
+    <div class="meme">MISSION OBJECTIVE:<br>Give Jubin a legendary send-off before he reports for permanent duty. 🫡</div>
+    <div class="center">
+      <div class="eyebrow">TIME LEFT BEFORE DEPLOYMENT</div>
+      <div class="timer">
+        <div class="timebox"><b id="days">--</b><span>DAYS</span></div>
+        <div class="timebox"><b id="hours">--</b><span>HOURS</span></div>
+        <div class="timebox"><b id="mins">--</b><span>MINUTES</span></div>
+        <div class="timebox"><b id="secs">--</b><span>SECONDS</span></div>
+      </div>
+      <p class="warning">Dress code: Come prepared. Details of the actual dress code will be communicated by command headquarters.</p>
+    </div>
+  </section>
+  <section class="card center hidden" id="rsvp">
+    <div class="eyebrow">CONFIRM YOUR STATUS</div>
+    <h2 class="mission-title">WILL YOU ACCEPT THE MISSION?</h2>
+    <p>The squad is counting on you. And Jubin's reputation is already in danger.</p>
+    <form id="rsvpForm">
+      <label for="guestName">AGENT NAME</label>
+      <input id="guestName" name="guestName" type="text" maxlength="80" placeholder="Enter your name" autocomplete="name" required>
+      <label>MISSION STATUS</label>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="attendance" value="Attending" required> 🫡 I'M IN</label>
+        <label class="choice"><input type="radio" name="attendance" value="Not attending"> 🏃 CAN'T MAKE IT</label>
+      </div>
+      <label>DRINK PREFERENCE</label>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="drink" value="Whiskey" required> 🥃 Whiskey</label>
+        <label class="choice"><input type="radio" name="drink" value="White"> 🍸 White</label>
+        <label class="choice"><input type="radio" name="drink" value="Beer"> 🍺 Beer</label>
+        <label class="choice"><input type="radio" name="drink" value="No alcohol"> 🚫 No alcohol</label>
+      </div>
+      <div style="text-align:center;margin-top:24px"><button class="btn" id="submitBtn" type="submit">📡 SEND RESPONSE TO HQ</button></div>
+      <div class="status" id="formStatus" role="status" aria-live="polite"></div>
+    </form>
+  </section>
+  <section class="card center hidden" id="final">
+    <div class="meme">LAST WARNING, AGENT:</div>
+    <h2 class="mission-title">WHAT HAPPENS AT THE BACHELOR'S PARTY…</h2>
+    <div class="meme" style="color:#ff5967">STAYS CLASSIFIED. 🤐</div>
+    <p>Phones may capture memories. The squad must protect the evidence.</p>
+    <div class="eyebrow">END OF TRANSMISSION // OVER AND OUT</div>
+  </section>
+</section>
+<section id="loginView" class="card auth-card hidden">
+  <div class="eyebrow">RESTRICTED ACCESS // AUTHENTICATION REQUIRED</div>
+  <h1 style="font-size:58px">COMMAND <span>CENTRE</span></h1>
+  <p class="note">This area is restricted to authorised Operation Jubin administrators. Sign in with the admin account created in Supabase.</p>
+  <form id="loginForm">
+    <label for="email">ADMIN EMAIL</label>
+    <input id="email" type="email" autocomplete="username" required>
+    <label for="password">PASSWORD</label>
+    <input id="password" type="password" autocomplete="current-password" required>
+    <div style="margin-top:22px"><button class="btn" id="loginBtn" type="submit">AUTHENTICATE</button></div>
+    <div class="auth-note" id="loginStatus" role="status" aria-live="polite"></div>
+  </form>
+</section>
+
+<section id="dashboardView" class="hidden">
+  <div class="toolbar" style="justify-content:space-between">
+    <div><div class="eyebrow">OPERATION JUBIN // GUEST RESPONSE MANAGEMENT</div><h1 style="font-size:64px;margin:14px 0">COMMAND <span>CENTRE</span></h1></div>
+    <button class="btn secondary" id="signOutBtn" type="button">SIGN OUT</button>
+  </div>
+  <div class="stats">
+    <div class="stat"><small>TOTAL RESPONSES</small><b id="totalCount">0</b></div>
+    <div class="stat"><small>ATTENDING</small><b id="yesCount">0</b></div>
+    <div class="stat"><small>NOT ATTENDING</small><b id="noCount">0</b></div>
+    <div class="stat"><small>NO ALCOHOL</small><b id="naCount">0</b></div>
+  </div>
+  <section class="card">
+    <div class="eyebrow">GUEST INTELLIGENCE</div>
+    <h2 class="mission-title">ALL SUBMISSIONS</h2>
+    <div class="toolbar">
+      <input id="search" type="text" placeholder="Search guest name or preference…">
+      <select id="attendanceFilter">
+        <option value="">All attendance</option>
+        <option value="Attending">Attending</option>
+        <option value="Not attending">Not attending</option>
+      </select>
+      <button class="btn" id="refreshBtn" type="button">REFRESH</button>
+      <button class="btn secondary" id="exportBtn" type="button">EXPORT CSV</button>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>GUEST</th><th>STATUS</th><th>DRINK PREFERENCE</th><th>SUBMITTED</th><th>ACTION</th></tr></thead>
+        <tbody id="guestRows"><tr><td colspan="5">Loading…</td></tr></tbody>
+      </table>
+    </div>
+    <div class="status" id="dashboardStatus" role="status" aria-live="polite"></div>
+  </section>
+<footer class="foot">J.A.S. INTELLIGENCE DIVISION • END OF TRANSMISSION</footer>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/*
+  SETUP: replace both placeholders with the URL and publishable key
+  from your NEW Operation Jubin Supabase project.
+  Never put a service_role/secret key in this public file.
+*/
+const SUPABASE_URL = "https://jtbztldbuxqjqknzicco.supabase.co/rest/v1/";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_hEyRdXQQJvTnlFfKRUy5qQ_k6sJhIxk";
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+// Admin login is available at this same page URL followed by #admin.
+
+const $ = (id) => document.getElementById(id);
+$("revealBtn").addEventListener("click", () => {
+  ["mission", "rsvp", "final"].forEach(id => $(id).classList.remove("hidden"));
+  $("revealBtn").textContent = "MISSION DECLASSIFIED";
+  $("mission").scrollIntoView({behavior:"smooth", block:"start"});
+});
+
+function tickCountdown() {
+  let remaining = Math.max(0, new Date("2027-02-06T18:00:00+05:30").getTime() - Date.now());
+  const days = Math.floor(remaining / 86400000); remaining %= 86400000;
+  const hours = Math.floor(remaining / 3600000); remaining %= 3600000;
+  const mins = Math.floor(remaining / 60000);
+  const secs = Math.floor((remaining % 60000) / 1000);
+  $("days").textContent = days;
+  $("hours").textContent = hours;
+  $("mins").textContent = mins;
+  $("secs").textContent = secs;
+}
+tickCountdown();
+setInterval(tickCountdown, 1000);
+
+$("rsvpForm").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const submitBtn = $("submitBtn");
+  const status = $("formStatus");
+  if (SUPABASE_URL.includes("YOUR_SUPABASE") || SUPABASE_PUBLISHABLE_KEY.includes("YOUR_SUPABASE")) {
+    status.textContent = "HQ connection is not configured yet. Please contact the organiser.";
+    status.classList.add("error");
+    return;
+  }
+  const form = new FormData(event.currentTarget);
+  const payload = {
+    guest_name: String(form.get("guestName") || "").trim(),
+    attendance: form.get("attendance"),
+    drink_preference: form.get("drink")
+  };
+  if (!payload.guest_name || payload.guest_name.length > 80) {
+    status.textContent = "Please enter a valid name (maximum 80 characters).";
+    status.classList.add("error");
+    return;
+  }
+  submitBtn.disabled = true;
+  submitBtn.textContent = "TRANSMITTING…";
+  status.classList.remove("error");
+  status.textContent = "Sending your response securely to HQ…";
+  try {
+    // Deliberately do not request returned rows: public visitors have no read permission.
+    const { error } = await supabaseClient.from("guest_submissions").insert(payload);
+    if (error) throw error;
+    status.textContent = "✅ Response received by HQ. You are officially on the record, agent.";
+    event.currentTarget.reset();
+  } catch (error) {
+    console.error("RSVP submission failed:", error);
+    status.textContent = "Transmission failed. Please try again in a moment.";
+    status.classList.add("error");
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = "📡 SEND RESPONSE TO HQ";
+  }
+});
+const $a = (id) => document.getElementById(id);
+let submissions = [];
+let currentAdmin = null;
+let routeCheckRunning = false;
+let lastVerifiedUserId = null;
+
+function escapeHtml(value) {
+  return String(value ?? "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+}
+function showLogin(message = "") {
+  currentAdmin = null;
+  lastVerifiedUserId = null;
+  $a("dashboardView").classList.add("hidden");
+  $a("loginView").classList.remove("hidden");
+  $a("loginStatus").textContent = message;
+}
+function showDashboard() {
+  if (!currentAdmin || location.hash !== "#admin") return;
+  $a("loginView").classList.add("hidden");
+  $a("dashboardView").classList.remove("hidden");
+}
+async function verifyAdmin(user) {
+  if (!user?.id) return false;
+  // The database RLS policy must allow a user to read only their own admin_users row.
+  const { data, error } = await supabaseClient
+    .from("admin_users")
+    .select("user_id")
+    .eq("user_id", user.id)
+    .maybeSingle();
+  if (error) throw error;
+  return Boolean(data);
+}
+async function requireAdmin() {
+  if (location.hash !== "#admin") throw new Error("Admin access is restricted.");
+  const { data: { session }, error: sessionError } = await supabaseClient.auth.getSession();
+  if (sessionError || !session?.user) throw new Error("Please sign in with an authorised admin account.");
+  const authorised = await verifyAdmin(session.user);
+  if (!authorised) {
+    currentAdmin = null;
+    await supabaseClient.auth.signOut();
+    showLogin("This account is not authorised for the Operation Jubin command centre.");
+    throw new Error("Administrator access denied.");
+  }
+  currentAdmin = session.user;
+  lastVerifiedUserId = session.user.id;
+  return session.user;
+}
+async function loadSubmissions() {
+  await requireAdmin();
+  $a("dashboardStatus").textContent = "Loading guest responses…";
+  const { data, error } = await supabaseClient
+    .from("guest_submissions")
+    .select("id,guest_name,attendance,drink_preference,created_at")
+    .order("created_at", { ascending: false });
+  if (error) throw error;
+  submissions = data || [];
+  renderRows();
+  $a("dashboardStatus").textContent = `Loaded ${submissions.length} guest response(s).`;
+}
+function renderRows() {
+  if (!currentAdmin || location.hash !== "#admin") return;
+  const q = $a("search").value.trim().toLowerCase();
+  const filter = $a("attendanceFilter").value;
+  const filtered = submissions.filter(row => {
+    const matchesFilter = !filter || row.attendance === filter;
+    const haystack = [row.guest_name,row.attendance,row.drink_preference].join(" ").toLowerCase();
+    return matchesFilter && haystack.includes(q);
+  });
+  $a("totalCount").textContent = submissions.length;
+  $a("yesCount").textContent = submissions.filter(x => x.attendance === "Attending").length;
+  $a("noCount").textContent = submissions.filter(x => x.attendance === "Not attending").length;
+  $a("naCount").textContent = submissions.filter(x => x.drink_preference === "No alcohol").length;
+  $a("guestRows").innerHTML = filtered.length ? filtered.map(row => `
+    <tr>
+      <td><b>${escapeHtml(row.guest_name)}</b></td>
+      <td><span class="pill ${row.attendance === "Attending" ? "" : "no"}">${escapeHtml(row.attendance)}</span></td>
+      <td>${escapeHtml(row.drink_preference)}</td>
+      <td>${new Date(row.created_at).toLocaleString()}</td>
+      <td><button class="btn secondary" type="button" data-delete="${escapeHtml(row.id)}" style="padding:7px 10px">DELETE</button></td>
+    </tr>`).join("") : `<tr><td colspan="5" style="text-align:center;padding:25px;color:#9ca7b7">No matching responses.</td></tr>`;
+}
+async function enterDashboard(user) {
+  currentAdmin = null;
+  const authorised = await verifyAdmin(user);
+  if (!authorised) {
+    await supabaseClient.auth.signOut();
+    showLogin("This account is not authorised for the Operation Jubin command centre.");
+    return;
+  }
+  currentAdmin = user;
+  lastVerifiedUserId = user.id;
+  if (location.hash !== "#admin") location.hash = "admin";
+  showDashboard();
+  try { await loadSubmissions(); }
+  catch (error) {
+    console.error(error);
+    $a("dashboardStatus").textContent = "Could not load guest responses. Check your Supabase RLS policies and connection.";
+  }
+}
+$a("loginForm").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  $a("loginBtn").disabled = true;
+  $a("loginStatus").textContent = "Authenticating…";
+  try {
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
+      email: $a("email").value.trim(),
+      password: $a("password").value
+    });
+    if (error) throw error;
+    await enterDashboard(data.user);
+  } catch (error) {
+    console.error(error);
+    showLogin(error.message || "Sign-in failed.");
+  } finally {
+    $a("loginBtn").disabled = false;
+  }
+});
+$a("signOutBtn").addEventListener("click", async () => {
+  await supabaseClient.auth.signOut();
+  submissions = [];
+  $a("password").value = "";
+  showLogin("You have signed out.");
+  setAppRoute();
+});
+$a("refreshBtn").addEventListener("click", async () => {
+  try { await loadSubmissions(); }
+  catch (error) { $a("dashboardStatus").textContent = error.message || "Refresh failed."; }
+});
+$a("search").addEventListener("input", renderRows);
+$a("attendanceFilter").addEventListener("change", renderRows);
+$a("guestRows").addEventListener("click", async (event) => {
+  const id = event.target?.dataset?.delete;
+  if (!id) return;
+  if (!confirm("Delete this guest response permanently?")) return;
+  event.target.disabled = true;
+  try {
+    await requireAdmin();
+    const { error } = await supabaseClient.from("guest_submissions").delete().eq("id", id);
+    if (error) throw error;
+    submissions = submissions.filter(row => String(row.id) !== String(id));
+    renderRows();
+    $a("dashboardStatus").textContent = "Guest response deleted.";
+  } catch (error) {
+    console.error(error);
+    $a("dashboardStatus").textContent = error.message || "Could not delete response.";
+    event.target.disabled = false;
+  }
+});
+$a("exportBtn").addEventListener("click", async () => {
+  try {
+    await requireAdmin();
+    const rows = [["Guest","Attendance","Drink preference","Submitted"],
+      ...submissions.map(row => [row.guest_name,row.attendance,row.drink_preference,row.created_at])];
+    const csv = rows.map(row => row.map(value => '"' + String(value ?? "").replace(/"/g,'""') + '"').join(",")).join("\r\n");
+    const blobUrl = URL.createObjectURL(new Blob([csv], {type:"text/csv;charset=utf-8;"}));
+    const link = document.createElement("a");
+    link.href = blobUrl;
+    link.download = "operation-jubin-guest-responses.csv";
+    link.click();
+    URL.revokeObjectURL(blobUrl);
+  } catch (error) {
+    $a("dashboardStatus").textContent = error.message || "Export denied.";
+  }
+});
+async function setAppRoute() {
+  const isAdminRoute = location.hash === "#admin";
+  $a("guestView").classList.toggle("hidden", isAdminRoute);
+  if (!isAdminRoute) {
+    $a("loginView").classList.add("hidden");
+    $a("dashboardView").classList.add("hidden");
+    currentAdmin = null;
+    lastVerifiedUserId = null;
+    return;
+  }
+  if (!currentAdmin) showLogin();
+  if (routeCheckRunning) return;
+  routeCheckRunning = true;
+  try {
+    const { data: { session }, error } = await supabaseClient.auth.getSession();
+    if (error) throw error;
+    if (!session?.user) {
+      showLogin();
+      return;
+    }
+    await enterDashboard(session.user);
+  } catch (error) {
+    console.error("Admin route verification failed:", error);
+    showLogin("Could not verify administrator access. Please sign in again.");
+  } finally {
+    routeCheckRunning = false;
+  }
+}
+window.addEventListener("hashchange", setAppRoute);
+supabaseClient.auth.onAuthStateChange((event, session) => {
+  if (event === "SIGNED_OUT" || !session?.user) {
+    currentAdmin = null;
+    lastVerifiedUserId = null;
+    submissions = [];
+    if (location.hash === "#admin") showLogin();
+  }
+});
+
+// The invitation remains public. The #admin route always requires a valid
+// Supabase session AND a matching row in admin_users before showing the dashboard.
+setAppRoute();
+
+</script>
+</body>
+</html>
