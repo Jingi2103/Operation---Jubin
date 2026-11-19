@@ -63,36 +63,67 @@ th{font:10px 'DM Mono',monospace;letter-spacing:1px;color:var(--muted)}
 .auth-card{max-width:520px;margin:70px auto}
 .auth-note{min-height:22px;margin-top:12px;color:#ff9aa3;font-size:13px}
 
+
+/* OPERATION JUBIN — cinematic invitation refresh */
+:root{--red:#f04452;--gold:#f1cf83;--panel:#111925;--line:#303b4a}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{min-height:100vh;overflow-x:hidden;background:radial-gradient(ellipse at 50% -10%,#303a4a 0,transparent 42%),linear-gradient(180deg,#090d14 0%,#07090e 100%)}
+body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.13;background-image:linear-gradient(#8290a0 1px,transparent 1px),linear-gradient(90deg,#8290a0 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to bottom,black,transparent 80%)}
+.scroll-progress{position:fixed;z-index:50;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--red),var(--gold));box-shadow:0 0 14px #f0445288}
+.ambient{position:fixed;z-index:-1;width:380px;height:380px;border-radius:50%;filter:blur(100px);opacity:.12;pointer-events:none;animation:drift 14s ease-in-out infinite alternate}.ambient-one{top:16%;left:-220px;background:#e83242}.ambient-two{right:-240px;top:55%;background:#d9a94f;animation-delay:-6s}
+@keyframes drift{to{transform:translate(90px,55px) scale(1.18)}}
+.wrap{width:min(1120px,92%);padding:25px 0 70px;position:relative}
+.top{padding:7px 0 18px;border-bottom:1px solid #ffffff16;letter-spacing:1.7px}.brand-lockup,.top-right{display:flex;align-items:center;gap:11px}.brand-mark{display:grid;place-items:center;width:30px;height:30px;border:1px solid #f0445288;color:var(--red);font:900 18px 'Barlow Condensed';transform:skew(-8deg)}.brand-lockup i{color:var(--red);font-style:normal}.top-right{gap:9px}.live-dot,.countdown-live i{width:7px;height:7px;background:#77e5a2;border-radius:50%;box-shadow:0 0 12px #77e5a2;display:inline-block;animation:pulse 1.6s infinite}.live-label{font-size:9px;color:#aab4c2;letter-spacing:1.4px}.stamp{font-size:10px;letter-spacing:1.5px;border-width:1px;transform:rotate(-2deg);background:#e8324210}
+@keyframes pulse{50%{opacity:.35;box-shadow:0 0 2px #77e5a2}}
+.hero{position:relative;padding:78px 0 44px;isolation:isolate}.hero-meta{display:flex;justify-content:center;align-items:center;gap:15px;flex-wrap:wrap}.kicker,.eyebrow{font-size:10px;letter-spacing:3.2px}.file-tag{font:10px 'DM Mono';color:#8490a0;border:1px solid #465263;padding:6px 9px;border-radius:3px;letter-spacing:1px}
+.hero-emblem{width:66px;height:66px;border:1px solid #f1cf8355;border-radius:50%;margin:25px auto 27px;display:grid;place-items:center;position:relative;color:var(--gold);font:900 35px 'Barlow Condensed';box-shadow:0 0 45px #f1cf8318,inset 0 0 22px #f1cf8310}.hero-emblem:before,.hero-emblem:after{content:"";position:absolute;inset:-7px;border:1px solid #f1cf8328;border-radius:50%;border-left-color:transparent;border-right-color:transparent;animation:spin 12s linear infinite}.hero-emblem:after{inset:-14px;border-color:#f0445230;border-top-color:transparent;border-bottom-color:transparent;animation-direction:reverse;animation-duration:18s}.hero-emblem i{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--red);top:2px;right:7px;box-shadow:0 0 12px var(--red)}
+@keyframes spin{to{transform:rotate(360deg)}}
+h1{font-size:clamp(66px,13vw,132px);line-height:.78;letter-spacing:-2px;margin:17px 0 25px;text-shadow:0 8px 35px #0009}h1 span{letter-spacing:1px;color:var(--red);text-shadow:0 0 38px #e8324266}.hero-rule{display:flex;align-items:center;justify-content:center;gap:13px;color:#aeb7c4;font:9px 'DM Mono';letter-spacing:2.3px}.hero-rule span{width:54px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}.hero-rule span:last-child{transform:rotate(180deg)}.sub{max-width:630px;font-size:16px;color:#c2c9d3;margin:25px auto 19px}.hero-pills{display:flex;justify-content:center;gap:12px;align-items:center;color:#9aa5b4;font:9px 'DM Mono';letter-spacing:1.8px}.hero-pills span:nth-child(2),.hero-pills span:nth-child(4){color:var(--red)}
+.card{position:relative;overflow:hidden;background:linear-gradient(145deg,#151e2bF2,#0c121cF5);border:1px solid #ffffff1b;border-radius:18px;padding:clamp(22px,4vw,42px);box-shadow:0 25px 80px #0008;margin:22px 0;backdrop-filter:blur(12px)}.card:before{content:"";position:absolute;inset:0 0 auto;height:1px;background:linear-gradient(90deg,transparent,#f1cf8377,transparent)}.card.center>p:not(.warning):not(.micro-hint){color:#c2cad5;line-height:1.7}.transmission-head,.countdown-heading{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}.signal{font:9px 'DM Mono';color:#f17a82;letter-spacing:1.5px}.signal:first-letter{color:var(--red)}.meme{letter-spacing:.5px;text-shadow:0 4px 20px #0008}.warning{max-width:690px;margin:23px auto 25px;background:#f1cf8309;border-left-color:var(--gold);border-radius:0 8px 8px 0;padding:13px 17px}.btn{border-radius:7px;background:linear-gradient(110deg,#f04452,#c9273b);padding:15px 23px;letter-spacing:.6px;box-shadow:0 9px 25px #e8324233;transition:transform .2s,box-shadow .2s,filter .2s}.btn:hover{transform:translateY(-3px);box-shadow:0 14px 32px #e8324255;filter:brightness(1.08)}.btn:active{transform:translateY(0) scale(.98)}.reveal-btn{gap:12px}.reveal-btn b{font-size:18px;margin-left:5px}.micro-hint{font:9px 'DM Mono';letter-spacing:2px;color:#7f8b9b;margin:13px 0 0!important}
+#mission,#rsvp,#final{animation:unseal .7s cubic-bezier(.2,.8,.2,1) both}@keyframes unseal{from{opacity:0;transform:translateY(22px) scale(.985);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+.mission-title{font-size:clamp(28px,5vw,40px);margin:10px 0 22px}.grid{gap:13px}.detail{position:relative;min-height:142px;padding:22px;background:linear-gradient(145deg,#0b121c,#101a27);border-color:#ffffff16;border-radius:12px;transition:transform .25s,border-color .25s,background .25s}.detail:hover{transform:translateY(-5px);border-color:#f1cf8366;background:linear-gradient(145deg,#111b29,#172334)}.detail small{font-size:9px;letter-spacing:1.3px}.detail strong{display:block;font-size:18px;line-height:1.3}.detail em{display:block;margin-top:7px;color:#8996a7;font:10px 'DM Mono';font-style:normal}.detail-icon{display:block;font-size:20px;margin-bottom:13px}.countdown-heading{margin-top:28px}.countdown-live{font:9px 'DM Mono';color:#8b98a8;letter-spacing:1px}.countdown-live i{width:6px;height:6px;margin-right:5px}.timer{gap:12px;max-width:680px;margin:20px auto 24px}.timebox{background:linear-gradient(180deg,#0a111a,#0b0f16);border:1px solid #ffffff1b;border-radius:10px;padding:17px 5px;position:relative;overflow:hidden}.timebox:before{content:"";position:absolute;top:0;left:15%;right:15%;height:1px;background:var(--red);box-shadow:0 0 12px var(--red)}.timebox b{font-size:clamp(32px,6vw,48px);color:#fff}.timebox span{font-size:9px;letter-spacing:2px}.rsvp-progress{display:flex;align-items:center;justify-content:center;gap:12px;color:#8995a5;font:9px 'DM Mono';letter-spacing:1.5px;margin:0 auto 25px}.rsvp-progress span{height:1px;width:45px;background:#f1cf8355}
+form{max-width:640px}.choices{gap:10px}.choice{flex:1 1 190px;justify-content:flex-start;border-radius:9px;background:#0a111b;border-color:#ffffff20;padding:14px 15px;cursor:pointer;transition:.2s}.choice:hover{border-color:#f1cf8377;transform:translateY(-2px)}.choice:has(input:checked){border-color:var(--gold);background:#f1cf8312;box-shadow:inset 0 0 0 1px #f1cf8322;color:#fff}.choice input{accent-color:var(--red);width:15px;height:15px}label{font-size:10px;letter-spacing:1.5px}input[type=text],input[type=email],input[type=password],select{background:#080e17;border-color:#ffffff25;border-radius:8px;outline:none;transition:border-color .2s,box-shadow .2s}input:focus,select:focus{border-color:var(--gold)!important;box-shadow:0 0 0 3px #f1cf8318}.status{line-height:1.6}.foot{border-top:1px solid #ffffff16;padding-top:20px;letter-spacing:2px}
+/* Admin module receives the same premium visual language. */
+.auth-card{border-color:#f1cf8340}.auth-card h1{font-size:clamp(48px,8vw,68px);line-height:.9}.stats{gap:12px}.stat{background:linear-gradient(145deg,#111b29,#0a1018);border-color:#ffffff1b;border-radius:12px}.stat b{color:var(--gold)}.toolbar .btn{box-shadow:none}.tablewrap{border:1px solid #ffffff14;border-radius:10px}table{border-collapse:separate;border-spacing:0}th{background:#0a111b}td{color:#d4dae3}tbody tr:hover td{background:#ffffff06}.pill{font-weight:700}.btn.secondary{background:#202b3a;border-color:#536174}.btn.secondary:hover{background:#2c394b}
+@media(max-width:650px){.hero{padding:58px 0 30px}.hero-pills{font-size:8px;gap:8px}.top-right{gap:6px}.live-label{display:none}.stamp{padding:6px 8px}.brand-lockup{font-size:9px}.hero-rule{font-size:8px;letter-spacing:1.3px}.hero-rule span{width:25px}.detail{min-height:125px}.timer{gap:8px}.timebox{padding:13px 4px}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
 </style>
 </head>
 <body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
 <main class="wrap">
-<header class="top"><div>J.A.S. // JUBIN ACTION SQUAD</div><div class="stamp">TOP SECRET</div></header>
+<header class="top"><div class="brand-lockup"><span class="brand-mark">J</span><span>J.A.S. <i>//</i> JUBIN ACTION SQUAD</span></div><div class="top-right"><span class="live-dot"></span><span class="live-label">TRANSMISSION LIVE</span><div class="stamp">TOP SECRET</div></div></header>
 <section id="guestView">
   <section class="hero">
-    <div class="kicker">EYES ONLY • LEVEL 1000 CLASSIFIED</div>
+    <div class="hero-meta"><span class="kicker">EYES ONLY • LEVEL 1000 CLASSIFIED</span><span class="file-tag">FILE NO. JAS-060227</span></div>
+    <div class="hero-emblem" aria-hidden="true"><span>J</span><i></i></div>
     <h1>OPERATION <span>JUBIN</span></h1>
+    <div class="hero-rule"><span></span><b>THE FINAL SINGLE-MAN MISSION</b><span></span></div>
     <p class="sub">One groom. One last mission. A squad of questionable decision-makers. Your presence has been requested for a highly confidential gathering.</p>
+    <div class="hero-pills"><span>06 FEB 2027</span><span>•</span><span>BANGALORE</span><span>•</span><span>AGENTS REQUIRED</span></div>
   </section>
   <section class="card center">
-    <div class="eyebrow">INCOMING TRANSMISSION</div>
+    <div class="transmission-head"><span class="eyebrow">INCOMING TRANSMISSION</span><span class="signal">● ENCRYPTED</span></div>
     <div class="meme">🚨 AGENT, YOUR PRESENCE IS REQUIRED. 🚨</div>
     <p>Intelligence confirms that <b>Jubin</b> is about to enter married life with <b>Maria</b>. Before the transfer of custody, the squad must assemble for one final operation.</p>
     <p class="warning">Warning: Mission may involve uncontrollable laughter, embarrassing stories and absolutely zero useful advice.</p>
-    <button class="btn" id="revealBtn" type="button">🔓 DECLASSIFY THE MISSION</button>
+    <button class="btn reveal-btn" id="revealBtn" type="button"><span>🔓</span> DECLASSIFY THE MISSION <b>→</b></button>
+    <p class="micro-hint">TAP TO UNLOCK YOUR MISSION BRIEFING</p>
   </section>
   <section class="card hidden" id="mission">
     <div class="eyebrow">MISSION BRIEFING // FILE 06-02-27</div>
     <h2 class="mission-title">THE DETAILS, AGENT.</h2>
     <div class="grid">
-      <div class="detail"><small>PRIMARY SUSPECT / GROOM</small><strong>Jubin 🕶️</strong></div>
-      <div class="detail"><small>THE BOSS / BRIDE</small><strong>Maria 👑</strong></div>
-      <div class="detail"><small>DATE OF OPERATION</small><strong>06 February 2027 • 6:00 PM</strong></div>
-      <div class="detail"><small>SAFEHOUSE / LOCATION</small><strong>Cherry Farms and Resort, Bangalore</strong></div>
+      <div class="detail"><span class="detail-icon">🕶️</span><small>PRIMARY SUSPECT / GROOM</small><strong>Jubin</strong><em>Target: Married life</em></div>
+      <div class="detail"><span class="detail-icon">👑</span><small>THE BOSS / BRIDE</small><strong>Maria</strong><em>Final authority</em></div>
+      <div class="detail"><span class="detail-icon">📅</span><small>DATE OF OPERATION</small><strong>06 February 2027</strong><em>Deployment at 6:00 PM</em></div>
+      <div class="detail"><span class="detail-icon">📍</span><small>SAFEHOUSE / LOCATION</small><strong>Cherry Farms and Resort</strong><em>Bangalore</em></div>
     </div>
     <div class="meme">MISSION OBJECTIVE:<br>Give Jubin a legendary send-off before he reports for permanent duty. 🫡</div>
     <div class="center">
-      <div class="eyebrow">TIME LEFT BEFORE DEPLOYMENT</div>
+      <div class="countdown-heading"><span class="eyebrow">TIME LEFT BEFORE DEPLOYMENT</span><span class="countdown-live"><i></i> COUNTING DOWN</span></div>
       <div class="timer">
         <div class="timebox"><b id="days">--</b><span>DAYS</span></div>
         <div class="timebox"><b id="hours">--</b><span>HOURS</span></div>
@@ -103,8 +134,9 @@ th{font:10px 'DM Mono',monospace;letter-spacing:1px;color:var(--muted)}
     </div>
   </section>
   <section class="card center hidden" id="rsvp">
-    <div class="eyebrow">CONFIRM YOUR STATUS</div>
+    <div class="eyebrow">CONFIRM YOUR STATUS // RESPONSE REQUIRED</div>
     <h2 class="mission-title">WILL YOU ACCEPT THE MISSION?</h2>
+    <div class="rsvp-progress"><span></span><b>AGENT ENLISTMENT FORM</b><span></span></div>
     <p>The squad is counting on you. And Jubin's reputation is already in danger.</p>
     <form id="rsvpForm">
       <label for="guestName">AGENT NAME</label>
@@ -192,6 +224,15 @@ const SUPABASE_URL = "https://jtbztldbuxqjqknzicco.supabase.co/rest/v1/";
 const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_hEyRdXQQJvTnlFfKRUy5qQ_k6sJhIxk";
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 // Admin login is available at this same page URL followed by #admin.
+
+const progressBar = document.getElementById("scrollProgress");
+function updateScrollProgress(){
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  progressBar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + "%";
+}
+window.addEventListener("scroll", updateScrollProgress, {passive:true});
+window.addEventListener("resize", updateScrollProgress);
+updateScrollProgress();
 
 const $ = (id) => document.getElementById(id);
 $("revealBtn").addEventListener("click", () => {
