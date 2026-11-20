@@ -242,6 +242,7 @@ h1 span{background:linear-gradient(100deg,#ff5267 10%,#f1cf83 52%,#ff5267 90%);b
   position: relative;
   text-align: center;
   padding: 25px 24px 35px;
+  margin-bottom: 45px;
   overflow: hidden;
   border: 1px solid #d8bd83;
   background: linear-gradient(145deg, #fffaf0, #f1e4ca);
@@ -290,10 +291,37 @@ h1 span{background:linear-gradient(100deg,#ff5267 10%,#f1cf83 52%,#ff5267 90%);b
 }
 
 .dress-code-divider {
-  width: 65px;
-  height: 2px;
-  background: #bd9655;
-  margin: 12px auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 220px;
+  margin: 22px auto;
+  background: none;
+}
+
+.dress-code-divider::before,
+.dress-code-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #bd9655,
+    #d8bd83
+  );
+}
+
+.dress-code-divider::after {
+  transform: scaleX(-1);
+}
+
+.dress-code-divider span {
+  color: #a8752d;
+  font-size: 17px;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(168, 117, 45, 0.2);
 }
 
 .dress-code-content h3 {
@@ -403,7 +431,9 @@ h1 span{background:linear-gradient(100deg,#ff5267 10%,#f1cf83 52%,#ff5267 90%);b
     <img src="pina-colada.png" alt="Tropical Pina Colada illustration">
   </div>
     <div class="dress-code-content">
-    <div class="dress-code-divider"></div>
+    <div class="dress-code-divider">
+  <span>✦</span>
+</div>
 
     <h2>DRESS CODE</h2>
 
@@ -413,7 +443,7 @@ h1 span{background:linear-gradient(100deg,#ff5267 10%,#f1cf83 52%,#ff5267 90%);b
     </p>
 
     <p class="dress-code-closing">
-      Bring your party spirit. And let the good time flow ...
+      Bring your party spirit. And let the good times flow!
     </p>
   </div>
 </div>
