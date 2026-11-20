@@ -213,7 +213,30 @@ h1 span{background:linear-gradient(100deg,#ff5267 10%,#f1cf83 52%,#ff5267 90%);b
 @keyframes successIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
 @keyframes successPop{from{transform:scale(.4) rotate(-25deg)}to{transform:scale(1) rotate(0)}}
 @media(prefers-reduced-motion:reduce){#cinematicIntro:after,.intro-emblem:before,.intro-emblem:after,.intro-classification,.intro-message:after{animation:none!important}.registration-success{animation:none}}
+/* ADD TO CALENDAR INTERACTION */
+.calendar-detail {
+  cursor: pointer;
+  position: relative;
+}
 
+.calendar-detail:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 25px #f1cf8320;
+}
+
+.calendar-hint {
+  display: inline-block;
+  margin-top: 15px;
+  color: var(--gold);
+  font: 10px 'DM Mono', monospace;
+  letter-spacing: 1px;
+  transition: .2s;
+}
+
+.calendar-detail:hover .calendar-hint {
+  color: #fff;
+  letter-spacing: 1.3px;
+}
 </style>
 </head>
 <body>
@@ -254,7 +277,18 @@ h1 span{background:linear-gradient(100deg,#ff5267 10%,#f1cf83 52%,#ff5267 90%);b
     <div class="grid">
       <div class="detail"><span class="detail-icon">🕶️</span><small>THE GROOM</small><strong>Jubin</strong><em>Target: Married life</em></div>
       <div class="detail"><span class="detail-icon">👑</span><small>THE BRIDE</small><strong>Maria</strong><em>Final authority</em></div>
-      <div class="detail"><span class="detail-icon">📅</span><small>DATE & TIME</small><strong>06 February 2027</strong><em>Deployment at 6:00 PM</em></div>
+      <div class="detail calendar-detail"
+     onclick="addToCalendar()"
+     role="button"
+     tabindex="0"
+     onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();addToCalendar();}">
+
+  <span class="detail-icon">📅</span>
+  <small>DATE & TIME</small>
+  <strong>06 February 2027</strong>
+  <em>Deployment at 6:00 PM</em>
+  <span class="calendar-hint">＋ CLICK HERE TO ADD TO YOUR CALENDAR</span>
+</div>
       <div class="detail">
   <span class="detail-icon">📍</span>
   <small>VENUE</small>
@@ -428,6 +462,28 @@ updateScrollProgress();
 
 const $ = (id) => document.getElementById(id);
 
+// OPERATION JUBIN — ADD TO CALENDAR
+function addToCalendar() {
+
+  const title = "Operation Jubin | Bachelor Party";
+  const start = "20270206T180000";
+  const end = "20270206T230000";
+
+  const details = "One groom, one legendary night, and the squad. Join us for Operation Jubin!";
+
+  const location = "Cherry Farms and Resort, Byatha, Bengaluru, Karnataka 560089";
+
+  const url = new URL("https://calendar.google.com/calendar/render");
+
+  url.searchParams.set("action", "TEMPLATE");
+  url.searchParams.set("text", title);
+  url.searchParams.set("dates", start + "/" + end);
+  url.searchParams.set("details", details);
+  url.searchParams.set("location", location);
+  url.searchParams.set("ctz", "Asia/Kolkata");
+
+  window.open(url.toString(), "_blank", "noopener,noreferrer");
+}
 // Cinematic opening is skipped for direct admin/team portal links.
 const introOverlay = $("cinematicIntro");
 const introMessage = $("introMessage");
